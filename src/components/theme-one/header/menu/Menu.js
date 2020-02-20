@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import logo from '../../../../assets/images/logo.png'
 import StyleThree160X181 from "../../post/StyleThree160x181";
+import {Link} from "react-router-dom";
 
 
 class Menu extends Component {
@@ -11,8 +12,8 @@ class Menu extends Component {
                     <nav className="navbar navbar-expand-lg">
                         <div className="container">
                             <div className="menu-content">
-                                <a className="navbar-brand" href="index.html"><img src={logo} alt="Logo"
-                                                                                   className="img-fluid"/></a>
+                                <Link className="navbar-brand" to="/"><img src={logo} alt="Logo"
+                                                                                   className="img-fluid"/></Link>
 
                                 <button className="navbar-toggler" type="button" data-toggle="collapse"
                                         data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
@@ -23,10 +24,10 @@ class Menu extends Component {
                                 <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                                     <ul  className="navbar-nav">
                                         <li className="nav-item sg-dropdown active">
-                                            <a href="#home">Home<span><i className="fa fa-angle-down"
-                                                                         aria-hidden="true"></i></span></a>
+                                            <Link to="/">Home<span><i className="fa fa-angle-down"
+                                                                         aria-hidden="true"></i></span></Link>
                                             <ul className="sg-dropdown-menu">
-                                                <li className="active"><a href="index.html">Home V-1</a></li>
+                                                <li className="active"><Link to="/">Home V-1</Link></li>
                                                 <li><a href="index1.html">Home V-2</a></li>
                                                 <li><a href="index2.html">Home V-3</a></li>
                                             </ul>

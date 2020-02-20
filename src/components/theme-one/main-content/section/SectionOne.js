@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import StyleTwo350X390 from "../../../post/StyleTwo350x390";
-import StyleThree160X181 from "../../../post/StyleThree160x181";
+import StyleTwo350X390 from "../../post/StyleTwo350x390";
+import StyleThree160X181 from "../../post/StyleThree160x181";
 
 class SectionOne extends Component {
     render() {

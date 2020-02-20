@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import StyleFive224X282 from "../../../post/StyleFive224x282";
+import StyleFive224X282 from "../../post/StyleFive224x282";
 
 class SectionFour extends Component {
     render() {

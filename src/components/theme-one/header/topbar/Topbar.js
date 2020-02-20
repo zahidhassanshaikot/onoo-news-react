@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ToggleButton from "./ToggleButton";
 
 class Topbar extends Component {
 
@@ -21,8 +22,13 @@ class Topbar extends Component {
                             </div>
 
                             <div className="right-content d-flex">
+                                <ToggleButton/>
                                 <div className="sg-social mr-md-5">
                                     <ul className="global-list">
+                                        <li>
+                                            {/*<ToggleButton/>*/}
+                                        </li>
+
                                         <li><a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
                                         <li><a href="#"><i className="fa fa-twitter" aria-hidden="true"></i></a></li>
                                         <li><a href="#"><i className="fa fa-google-plus" aria-hidden="true"></i></a>
