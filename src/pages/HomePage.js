@@ -68,7 +68,6 @@ class HomePage extends Component {
                                     <TegWidget/>
                                     <SidebarAds/>
                                     <WeatherWidget/>
-                                    <PollWidget/>
                                 </div>
                             </div>
                         </div>

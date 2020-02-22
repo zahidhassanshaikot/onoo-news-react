@@ -1,13 +1,25 @@
 import React, {Component} from 'react';
 import ToggleButton from "./ToggleButton";
+import moment from "moment";
+import {Link} from "react-router-dom";
 
 class Topbar extends Component {
 
+    state = {
+        curTime: null,
+    }
+
     componentDidMount() {
-        // document.body.class = "dark";
+        setInterval( () => {
+            this.setState({
+                curTime :moment().format('h:mm:ss A')
+            })
+        },1000)
     }
 
     render() {
+        let date = moment().format('dddd, DD MMMM YYYY');
+
         return (
             <>
                 <div className="sg-topbar">
@@ -15,18 +27,17 @@ class Topbar extends Component {
                         <div className="d-md-flex justify-content-md-between">
                             <div className="left-contennt">
                                 <ul className="global-list">
-                                    <li><i className="fa fa-calendar mr-2" aria-hidden="true"></i>Monday, 11 November
-                                        2019
+                                    <li><i className="fa fa-calendar mr-2" aria-hidden="true"></i>
+                                        {date}, {this.state.curTime}
                                     </li>
                                 </ul>
                             </div>
 
                             <div className="right-content d-flex">
-                                <ToggleButton/>
                                 <div className="sg-social mr-md-5">
                                     <ul className="global-list">
                                         <li>
-                                            {/*<ToggleButton/>*/}
+                                            <ToggleButton/>
                                         </li>
 
                                         <li><a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -38,8 +49,8 @@ class Topbar extends Component {
                                 </div>
 
                                 <div className="sg-user">
-                                    <span><i className="fa fa-user-circle mr-2" aria-hidden="true"></i><a
-                                        href="sign-in.html">Login</a> / <a href="sign-up.html"> SignUp</a></span>
+                                    <span><i className="fa fa-user-circle mr-2" aria-hidden="true"></i><Link
+                                        to="sign-in">Login</Link> / <Link to="sign-up"> SignUp</Link></span>
                                 </div>
                             </div>
                         </div>
