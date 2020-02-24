@@ -8,8 +8,8 @@ class SignInPage extends Component {
     render() {
         return (
             <>
-                <Header/>
-                <SignIn/>
+                <Header history={this.props.history}/>
+                <SignIn history={this.props.history}/>
                 <Footer/>
             </>
         );

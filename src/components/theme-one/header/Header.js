@@ -7,8 +7,8 @@ class Header extends Component {
         return (
             <>
                 <header className="sg-header">
-                    <Topbar/>
-                    <Menu/>
+                    <Topbar history={this.props.history}/>
+                    <Menu history={this.props.history}/>
                 </header>
             </>
         );

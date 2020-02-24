@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import ToggleButton from "./ToggleButton";
 import moment from "moment";
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
+import {logout} from "./../../../../store/actions/authAction"
 
 class Topbar extends Component {
 
@@ -48,10 +50,38 @@ class Topbar extends Component {
                                     </ul>
                                 </div>
 
-                                <div className="sg-user">
-                                    <span><i className="fa fa-user-circle mr-2" aria-hidden="true"></i><Link
-                                        to="sign-in">Login</Link> / <Link to="sign-up"> SignUp</Link></span>
-                                </div>
+
+
+
+                                {
+                                    this.props.auth.isAuthenticated ?
+                                        <React.Fragment>
+                                            <div className="sg-user">
+                                                <span><i className="fa fa-user-circle mr-2" aria-hidden="true"></i>
+                                                    <Link onClick={()=>this.props.logout(this.props.history)}>Logout</Link>
+                                                </span>
+                                            </div>
+                                        </React.Fragment>
+                                        :
+                                        <React.Fragment>
+                                            <div className="sg-user">
+                                                <span><i className="fa fa-user-circle mr-2" aria-hidden="true"></i>
+                                                    <Link to="sign-in">Login</Link> / <Link to="sign-up"> SignUp</Link>
+                                                </span>
+                                            </div>
+                                        </React.Fragment>
+                                }
+
+
+
+
+
+
+
+                                {/*<div className="sg-user">*/}
+                                {/*    <span><i className="fa fa-user-circle mr-2" aria-hidden="true"></i><Link*/}
+                                {/*        to="sign-in">Login</Link> / <Link to="sign-up"> SignUp</Link></span>*/}
+                                {/*</div>*/}
                             </div>
                         </div>
                     </div>
@@ -60,5 +90,8 @@ class Topbar extends Component {
         );
     }
 }
+const mapStateToProps = state =>({
+    auth:state.auth
+})
 
-export default Topbar;
+export default connect(mapStateToProps,{logout})(Topbar);

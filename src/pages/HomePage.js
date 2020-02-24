@@ -35,7 +35,7 @@ class HomePage extends Component {
     render() {
         return (
             <>
-                <Header/>
+                <Header history={this.props.history}/>
                 <HeaderAds/>
                 <BreakingNews/>
                 <TopSection/>

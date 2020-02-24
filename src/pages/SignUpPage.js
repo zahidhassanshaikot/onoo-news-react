@@ -7,8 +7,8 @@ class SignUpPage extends Component {
     render() {
         return (
             <>
-                <Header/>
-                <SignUp/>
+                <Header history={this.props.history}/>
+                <SignUp history={this.props.history}/>
                 <Footer/>
             </>
         );

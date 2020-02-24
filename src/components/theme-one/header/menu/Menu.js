@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import logo from '../../../../assets/images/logo.png'
 import StyleThree160X181 from "../../post/StyleThree160x181";
 import {Link} from "react-router-dom";
+import Search from "../../search/Search";
 
 
 class Menu extends Component {
@@ -223,15 +224,8 @@ class Menu extends Component {
                                     </ul>
                                 </div>
 
-                                <div className="sg-search">
-                                    <div className="search-form">
-                                        <form action="#" id="search" method="get">
-                                            <input className="form-control" name="search" type="text"
-                                                   placeholder="Search here.."/>
-                                                <button type="submit"><i className="fa fa-search"></i></button>
-                                        </form>
-                                    </div>
-                                </div>
+                                <Search/>
+
                             </div>
                         </div>
                     </nav>

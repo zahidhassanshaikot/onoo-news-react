@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Route, Link,Switch } from "react-router-dom";
-import AppRoute from "./router/Router";
+import { BrowserRouter } from "react-router-dom";
+import AppRouter from "./router/Router";
 import  preloader from './assets/images/preloader.gif'
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
             <img src={preloader} alt="Image" className="tr-preloader img-fluid"/>
         </div>
       <BrowserRouter>
-          <AppRoute/>
+          <AppRouter/>
       </BrowserRouter>
     </>
   );

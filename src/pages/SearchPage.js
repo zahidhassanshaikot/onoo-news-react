@@ -8,12 +8,13 @@ import RecommendedPostWidget
     from "../components/theme-one/main-content/widget/recommended-post-widget/RecommendedPostWidget";
 import TegWidget from "../components/theme-one/main-content/widget/teg-widget/TegWidget";
 import PollWidget from "../components/theme-one/main-content/widget/poll-widget/PollWidget";
+import Search from "../components/theme-one/search/Search";
 
 class SearchPage extends Component {
     render() {
         return (
             <>
-                <Header/>
+                <Header history={this.props.history}/>
 
                 <div className="sg-page-content">
                     <div className="container">
@@ -22,17 +23,8 @@ class SearchPage extends Component {
                                 <div className="theiaStickySidebar">
                                     <div className="sg-section">
                                         <div className="section-content search-content">
-                                            <div className="sg-search">
-                                                <div className="search-form">
-                                                    <form action="#" id="search" method="get">
-                                                        <input className="form-control" name="search" type="text"
-                                                               placeholder="Search here.."/>
-                                                            <button type="submit">
-                                                                <i className="fa fa-search"></i>
-                                                            </button>
-                                                    </form>
-                                                </div>
-                                            </div>
+                                            <Search/>
+
 
                                             <StyleNine730X122/>
                                             <StyleNine730X122/>
