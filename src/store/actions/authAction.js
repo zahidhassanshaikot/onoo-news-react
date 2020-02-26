@@ -20,7 +20,7 @@ export const register = (user,history) => dispatch=> {
     //     },
     // })
         .then(res=>{
-            console.log(res);
+            // console.log(res);
             dispatch({
                 type:Type.USER_ERROR,
                 payload:{
@@ -30,7 +30,7 @@ export const register = (user,history) => dispatch=> {
             history.push('/sign-in');
         })
         .catch(error =>{
-            console.log(error.response);
+            // console.log(error.response);
             dispatch({
                 type:Type.USER_ERROR,
                 payload:{
@@ -49,7 +49,6 @@ export const login =(user,history)=>dispatch=>{
             localStorage.setItem('auth_token',token);
             setAuthToken(token);
             let decode=jwtDecode(token);
-            // console.log(res);
             console.log(decode.name);
             dispatch({
                 type: Type.SET_USER,

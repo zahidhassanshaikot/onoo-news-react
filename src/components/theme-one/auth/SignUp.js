@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {register} from "./../../../store/actions/authAction"
 
@@ -140,4 +140,4 @@ const mapStateToProps=(state)=>({
     auth: state.auth
 })
 
-export default connect(mapStateToProps,{register})(SignUp);
+export default withRouter(connect(mapStateToProps,{register})(SignUp));

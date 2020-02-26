@@ -21,6 +21,7 @@ import RecommendedPostWidget
 import TegWidget from "../components/theme-one/main-content/widget/teg-widget/TegWidget";
 import WeatherWidget from "../components/theme-one/main-content/widget/weather-widget/WeatherWidget";
 import PollWidget from "../components/theme-one/main-content/widget/poll-widget/PollWidget";
+import {withRouter} from "react-router-dom";
 
 class HomePage extends Component {
 
@@ -35,7 +36,7 @@ class HomePage extends Component {
     render() {
         return (
             <>
-                <Header history={this.props.history}/>
+                <Header/>
                 <HeaderAds/>
                 <BreakingNews/>
                 <TopSection/>
@@ -79,4 +80,4 @@ class HomePage extends Component {
     }
 }
 
-export default HomePage;
+export default withRouter(HomePage);

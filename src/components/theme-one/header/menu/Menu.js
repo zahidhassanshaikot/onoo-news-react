@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import logo from '../../../../assets/images/logo.png'
 import StyleThree160X181 from "../../post/StyleThree160x181";
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import Search from "../../search/Search";
 
 
@@ -236,4 +236,4 @@ class Menu extends Component {
     }
 }
 
-export default Menu;
+export default withRouter(Menu);

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ToggleButton from "./ToggleButton";
 import moment from "moment";
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {logout} from "./../../../../store/actions/authAction"
 
@@ -66,7 +66,7 @@ class Topbar extends Component {
                                         <React.Fragment>
                                             <div className="sg-user">
                                                 <span><i className="fa fa-user-circle mr-2" aria-hidden="true"></i>
-                                                    <Link to="sign-in">Login</Link> / <Link to="sign-up"> SignUp</Link>
+                                                    <Link to="/sign-in">Login</Link> / <Link to="/sign-up"> SignUp</Link>
                                                 </span>
                                             </div>
                                         </React.Fragment>
@@ -94,4 +94,4 @@ const mapStateToProps = state =>({
     auth:state.auth
 })
 
-export default connect(mapStateToProps,{logout})(Topbar);
+export default withRouter(connect(mapStateToProps,{logout})(Topbar));

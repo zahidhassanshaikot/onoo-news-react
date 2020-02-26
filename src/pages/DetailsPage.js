@@ -13,6 +13,7 @@ import SectionFollowUs from "../components/theme-one/main-content/section/Sectio
 import SectionComment from "../components/theme-one/main-content/section/comment/SectionComment";
 import ContentAds from "../components/theme-one/ads/ContentAds";
 import SectionSeven from "../components/theme-one/main-content/section/SectionSeven";
+import {withRouter} from 'react-router-dom'
 
 class DetailsPage extends Component {
 
@@ -61,4 +62,4 @@ class DetailsPage extends Component {
     }
 }
 
-export default DetailsPage;
+export default withRouter(DetailsPage);

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {login} from "./../../../store/actions/authAction"
 
@@ -93,4 +93,4 @@ class SignIn extends Component {
 const mapStateToProps=state=>({
     auth:state.auth
 });
-export default connect(mapStateToProps,{login})(SignIn);
+export default withRouter(connect(mapStateToProps,{login})(SignIn));

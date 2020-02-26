@@ -3,6 +3,7 @@ import Header from "../components/theme-one/header/Header";
 import Footer from "../components/theme-one/footer/Footer";
 import {Link} from "react-router-dom";
 import SignIn from "../components/theme-one/auth/SignIn";
+import {withRouter} from "react-router-dom";
 
 class SignInPage extends Component {
     render() {
@@ -16,4 +17,4 @@ class SignInPage extends Component {
     }
 }
 
-export default SignInPage;
+export default withRouter(SignInPage);
