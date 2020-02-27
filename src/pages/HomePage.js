@@ -22,6 +22,10 @@ import TegWidget from "../components/theme-one/main-content/widget/teg-widget/Te
 import WeatherWidget from "../components/theme-one/main-content/widget/weather-widget/WeatherWidget";
 import PollWidget from "../components/theme-one/main-content/widget/poll-widget/PollWidget";
 import {withRouter} from "react-router-dom";
+import {login} from "../store/actions/authAction";
+import  {loadHomeContent} from "../store/actions/homeAction";
+
+import {connect} from "react-redux";
 
 class HomePage extends Component {
 
@@ -30,10 +34,12 @@ class HomePage extends Component {
     }
 
     componentDidMount() {
+        this.props.loadHomeContent();
         // document.body.classList.add('sg-dark');
     }
 
     render() {
+        let {menu,ads,sliderNews,featuredNews,populerdNews,latestPost,recommendeddNews,categories,settings}=this.props.homeContent;
         return (
             <>
                 <Header/>
@@ -80,4 +86,8 @@ class HomePage extends Component {
     }
 }
 
-export default withRouter(HomePage);
+const mapStateToProps=state=>({
+    auth:state.auth,
+    homeContent:state.homeContent
+});
+export default withRouter(connect(mapStateToProps,{loadHomeContent})(HomePage));

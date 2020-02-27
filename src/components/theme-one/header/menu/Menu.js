@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import logo from '../../../../assets/images/logo.png'
 import StyleThree160X181 from "../../post/StyleThree160x181";
-import {Link, withRouter} from "react-router-dom";
+import {Link, NavLink, withRouter} from "react-router-dom";
 import Search from "../../search/Search";
 
 
@@ -13,20 +13,35 @@ class Menu extends Component {
                     <nav className="navbar navbar-expand-lg">
                         <div className="container">
                             <div className="menu-content">
-                                <Link className="navbar-brand" to="/"><img src={logo} alt="Logo"
-                                                                                   className="img-fluid"/></Link>
+                                <Link className="navbar-brand" to="/">
+                                    <img
+                                        src={logo}
+                                        alt="Logo"
+                                        className="img-fluid"
+                                    />
+                                </Link>
 
-                                <button className="navbar-toggler" type="button" data-toggle="collapse"
-                                        data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                                        aria-label="Toggle navigation">
-                                    <span className="navbar-toggler-icon"><i className="fa fa-align-justify"></i></span>
+                                <button
+                                    className="navbar-toggler"
+                                    type="button"
+                                    data-toggle="collapse"
+                                    data-target="#navbarNav"
+                                    aria-controls="navbarNav"
+                                    aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                    <span className="navbar-toggler-icon">
+                                        <i className="fa fa-align-justify"></i>
+                                    </span>
                                 </button>
 
                                 <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                                     <ul  className="navbar-nav">
                                         <li className="nav-item sg-dropdown active">
-                                            <Link to="/">Home<span><i className="fa fa-angle-down"
-                                                                         aria-hidden="true"></i></span></Link>
+                                            <NavLink exact activeStyle={{color: '#00a8ee'}} to="/">Home
+                                                <span>
+                                                    <i className="fa fa-angle-down" aria-hidden="true"></i>
+                                                </span>
+                                            </NavLink>
                                             <ul className="sg-dropdown-menu">
                                                 <li className="active"><Link to="/">Home V-1</Link></li>
                                                 <li><a href="index1.html">Home V-2</a></li>
@@ -218,7 +233,7 @@ class Menu extends Component {
                                                 </div>
                                             </div>
                                         </li>
-                                        <li><a href="#">Pages</a></li>
+                                        <li><NavLink exact activeStyle={{color: '#00a8ee'}} to="/details/slug">Pages</NavLink></li>
                                         <li><a href="#">About</a></li>
                                         <li><a href="#">All Category</a></li>
                                     </ul>

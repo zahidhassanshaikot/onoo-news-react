@@ -49,7 +49,7 @@ export const login =(user,history)=>dispatch=>{
             localStorage.setItem('auth_token',token);
             setAuthToken(token);
             let decode=jwtDecode(token);
-            console.log(decode.name);
+            // console.log(decode.name);
             dispatch({
                 type: Type.SET_USER,
                 payload:{
