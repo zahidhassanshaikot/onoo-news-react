@@ -15,7 +15,7 @@ class StyleThree160X181 extends Component {
                                 />
                             </Link>
                         </div>
-                   ' </div>
+                    </div>
                     <div className="entry-content">
                         <p>Trump's Florida move get ripped on 'SNL</p>
                         <div className="entry-meta">

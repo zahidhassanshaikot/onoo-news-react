@@ -26,6 +26,7 @@ import {login} from "../store/actions/authAction";
 import  {loadHomeContent} from "../store/actions/homeAction";
 
 import {connect} from "react-redux";
+import VideoSection from "../components/theme-one/main-content/section/VideoSection";
 
 class HomePage extends Component {
 
@@ -59,6 +60,7 @@ class HomePage extends Component {
                                     <SectionFour/>
                                     <ContentAds/>
                                     <SectionFive/>
+                                    <VideoSection/>
                                     <SectionSix/>
 
                                 </div>

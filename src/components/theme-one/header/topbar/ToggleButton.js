@@ -29,10 +29,10 @@ class ToggleButton extends Component {
             <div>
                 <Switch onClick={this.toggleSwitch} on={this.state.switched}>
                     { this.state.switched===false && (
-                        <span>Dark Mode <i className="fa fa-toggle-off"></i></span>
+                        <span> <i className="fa fa-toggle-off"></i></span>
                     )}
                     { this.state.switched===true && (
-                        <span>Dark Mode <i className="fa fa-toggle-on"></i></span>
+                        <span> <i className="fa fa-toggle-on"></i></span>
                     )}
                 </Switch>
             </div>

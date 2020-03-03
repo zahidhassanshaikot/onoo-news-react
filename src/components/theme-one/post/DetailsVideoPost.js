@@ -23,6 +23,7 @@ class DetailsVideoPost extends Component {
                             saying through</h3>
                         <div className="entry-meta mb-2">
                             <ul className="global-list">
+                                <li>By <a href="#">Mahananda</a></li>
                                 <li><i className="fa fa-calendar-minus-o" aria-hidden="true"></i><a href="#">November 4,
                                     2019</a></li>
                             </ul>
