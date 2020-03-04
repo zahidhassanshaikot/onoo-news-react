@@ -1,49 +1,31 @@
 import React, {Component} from 'react';
-import logo from '../../../../assets/images/logo.png';
 import StyleThree160X181 from "../../post/StyleThree160x181";
-import {Link, NavLink, withRouter} from "react-router-dom";
-import Search from "../../search/Search";
 
-
-class Menu extends Component {
+class MenuTwo extends Component {
     render() {
         return (
             <>
-                <div className="sg-menu">
+                <div className="sg-menu menu-style-2">
                     <nav className="navbar navbar-expand-lg">
                         <div className="container">
                             <div className="menu-content">
-                                <Link className="navbar-brand" to="/">
-                                    <img
-                                        src={logo}
-                                        alt="Logo"
-                                        className="img-fluid"
-                                    />
-                                </Link>
-
-                                <button
-                                    className="navbar-toggler"
-                                    type="button"
-                                    data-toggle="collapse"
-                                    data-target="#navbarNav"
-                                    aria-controls="navbarNav"
-                                    aria-expanded="false"
-                                    aria-label="Toggle navigation">
-                                    <span className="navbar-toggler-icon">
-                                        <i className="fa fa-align-justify"></i>
-                                    </span>
+                                <a className="navbar-brand p-0 sm-logo" href="index.html"><img src="images/logo.png"
+                                                                                               alt="Logo"
+                                                                                               className="img-fluid"/></a>
+                                <button className="navbar-toggler" type="button" data-toggle="collapse"
+                                        data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                                        aria-label="Toggle navigation">
+                                        <span className="navbar-toggler-icon"><i
+                                            className="fa fa-align-justify"></i></span>
                                 </button>
 
-                                <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-                                    <ul  className="navbar-nav">
+                                <div className="collapse navbar-collapse" id="navbarNav">
+                                    <ul className="navbar-nav">
                                         <li className="nav-item sg-dropdown active">
-                                            <NavLink exact activeStyle={{color: '#00a8ee'}} to="/">Home
-                                                <span>
-                                                    <i className="fa fa-angle-down" aria-hidden="true"></i>
-                                                </span>
-                                            </NavLink>
+                                            <a href="#home">Home<span><i className="fa fa-angle-down"
+                                                                         aria-hidden="true"></i></span></a>
                                             <ul className="sg-dropdown-menu">
-                                                <li className="active"><Link to="/">Home V-1</Link></li>
+                                                <li className="active"><a href="index.html">Home V-1</a></li>
                                                 <li><a href="index1.html">Home V-2</a></li>
                                                 <li><a href="index2.html">Home V-3</a></li>
                                             </ul>
@@ -109,16 +91,16 @@ class Menu extends Component {
                                                                      role="tabpanel" aria-labelledby="photography-tab">
                                                                     <div className="row">
                                                                         <div className="col-md-6 col-lg-3">
-                                                                             <StyleThree160X181/>
+                                                                            <StyleThree160X181/>
                                                                         </div>
                                                                         <div className="col-md-6 col-lg-3">
-                                                                             <StyleThree160X181/>
+                                                                            <StyleThree160X181/>
                                                                         </div>
                                                                         <div className="col-md-6 col-lg-3">
-                                                                             <StyleThree160X181/>
+                                                                            <StyleThree160X181/>
                                                                         </div>
                                                                         <div className="col-md-6 col-lg-3">
-                                                                             <StyleThree160X181/>
+                                                                            <StyleThree160X181/>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -126,16 +108,16 @@ class Menu extends Component {
                                                                      aria-labelledby="business-tab">
                                                                     <div className="row">
                                                                         <div className="col-md-6 col-lg-3">
-                                                                             <StyleThree160X181/>
+                                                                            <StyleThree160X181/>
                                                                         </div>
                                                                         <div className="col-md-6 col-lg-3">
-                                                                             <StyleThree160X181/>
+                                                                            <StyleThree160X181/>
                                                                         </div>
                                                                         <div className="col-md-6 col-lg-3">
-                                                                             <StyleThree160X181/>
+                                                                            <StyleThree160X181/>
                                                                         </div>
                                                                         <div className="col-md-6 col-lg-3">
-                                                                             <StyleThree160X181/>
+                                                                            <StyleThree160X181/>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -143,16 +125,16 @@ class Menu extends Component {
                                                                      aria-labelledby="design-tab">
                                                                     <div className="row">
                                                                         <div className="col-md-6 col-lg-3">
-                                                                             <StyleThree160X181/>
+                                                                            <StyleThree160X181/>
                                                                         </div>
                                                                         <div className="col-md-6 col-lg-3">
-                                                                             <StyleThree160X181/>
+                                                                            <StyleThree160X181/>
                                                                         </div>
                                                                         <div className="col-md-6 col-lg-3">
-                                                                             <StyleThree160X181/>
+                                                                            <StyleThree160X181/>
                                                                         </div>
                                                                         <div className="col-md-6 col-lg-3">
-                                                                             <StyleThree160X181/>
+                                                                            <StyleThree160X181/>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -160,16 +142,16 @@ class Menu extends Component {
                                                                      aria-labelledby="tech-tab">
                                                                     <div className="row">
                                                                         <div className="col-md-6 col-lg-3">
-                                                                             <StyleThree160X181/>
+                                                                            <StyleThree160X181/>
                                                                         </div>
                                                                         <div className="col-md-6 col-lg-3">
-                                                                             <StyleThree160X181/>
+                                                                            <StyleThree160X181/>
                                                                         </div>
                                                                         <div className="col-md-6 col-lg-3">
-                                                                             <StyleThree160X181/>
+                                                                            <StyleThree160X181/>
                                                                         </div>
                                                                         <div className="col-md-6 col-lg-3">
-                                                                             <StyleThree160X181/>
+                                                                            <StyleThree160X181/>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -188,7 +170,8 @@ class Menu extends Component {
                                                         <div className="col-md-3">
                                                             <h3>Top News</h3>
                                                             <ul className="global-list">
-                                                                <li className="active"><a href="#">Criket match</a></li>
+                                                                <li className="active"><a href="#">Criket match</a>
+                                                                </li>
                                                                 <li><a href="#">Earth fire</a></li>
                                                                 <li><a href="#">Education</a></li>
                                                                 <li><a href="#">Banking seba</a></li>
@@ -233,22 +216,18 @@ class Menu extends Component {
                                                 </div>
                                             </div>
                                         </li>
-                                        <li><NavLink exact activeStyle={{color: '#00a8ee'}} to="/details/slug">Pages</NavLink></li>
+                                        <li><a href="#">Pages</a></li>
                                         <li><a href="#">About</a></li>
                                         <li><a href="#">All Category</a></li>
                                     </ul>
                                 </div>
-
-                                <Search/>
-
                             </div>
                         </div>
                     </nav>
                 </div>
             </>
-
         );
     }
 }
 
-export default withRouter(Menu);
+export default MenuTwo;

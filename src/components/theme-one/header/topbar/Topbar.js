@@ -7,8 +7,12 @@ import {logout} from "./../../../../store/actions/authAction"
 
 class Topbar extends Component {
 
-    state = {
-        curTime: null,
+    constructor() {
+        super();
+        this.state = {
+            curTime: null,
+            date:moment().format('dddd, DD MMMM YYYY')
+        }
     }
 
     componentDidMount() {
@@ -20,8 +24,6 @@ class Topbar extends Component {
     }
 
     render() {
-        let date = moment().format('dddd, DD MMMM YYYY');
-
         return (
             <>
                 <div className="sg-topbar">
@@ -30,7 +32,7 @@ class Topbar extends Component {
                             <div className="left-contennt">
                                 <ul className="global-list">
                                     <li><i className="fa fa-calendar mr-2" aria-hidden="true"></i>
-                                        {date}, {this.state.curTime}
+                                        {this.state.date}, {this.state.curTime}
                                     </li>
                                 </ul>
                             </div>

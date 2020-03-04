@@ -13,6 +13,11 @@ class StyleFive224X282 extends Component {
                                      alt="Image"
                                 />
                             </a>
+                            <div className="category">
+                                <ul className="global-list">
+                                    <li><a href="#">Technology</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div className="entry-content">

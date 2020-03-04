@@ -27,6 +27,12 @@ import  {loadHomeContent} from "../store/actions/homeAction";
 
 import {connect} from "react-redux";
 import VideoSection from "../components/theme-one/main-content/section/VideoSection";
+import HeaderTwo from "../components/theme-one/header/HeaderTwo";
+import TopSectionTwo from "../components/theme-one/top-section/TopSectionTwo";
+import FooterTwo from "../components/theme-one/footer/FooterTwo";
+import FooterThree from "../components/theme-one/footer/FooterThree";
+import HeaderThree from "../components/theme-one/header/HeaderThree";
+import TopSectionThree from "../components/theme-one/top-section/TopSectionThree";
 
 class HomePage extends Component {
 
@@ -43,10 +49,9 @@ class HomePage extends Component {
         let {menu,ads,sliderNews,featuredNews,populerdNews,latestPost,recommendeddNews,categories,settings}=this.props.homeContent;
         return (
             <>
-                <Header/>
+                <HeaderThree/>
                 <HeaderAds/>
-                <BreakingNews/>
-                <TopSection/>
+                <TopSectionThree/>
                 <div className="sg-main-content mb-4">
                     <div className="container">
                         <div className="row">
@@ -82,7 +87,7 @@ class HomePage extends Component {
                         </div>
                     </div>
                 </div>
-                <Footer/>
+                <FooterThree/>
             </>
         );
     }

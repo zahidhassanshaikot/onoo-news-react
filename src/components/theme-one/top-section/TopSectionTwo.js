@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import Slider from "./slider/Slider";
-import StyleOne255X237 from "../post/StyleOne255x237";
+import SliderTwo from "./slider/SliderTwo";
+import StyleFour350X82 from "../post/StyleFour350x82";
+import StyleEleven207X202 from "../post/StyleEleven207x202";
 import BreakingNews from "../breaking-news/BreakingNews";
 
-
-class TopSection extends Component {
+class TopSectionTwo extends Component {
     render() {
         return (
             <>
@@ -12,24 +12,22 @@ class TopSection extends Component {
                 <div className="sg-home-section">
                     <div className="container">
                         <div className="row">
-                            <div className="col-lg-6">
-                                <Slider/>
+                            <div className="col-lg-7">
+                                <SliderTwo/>
                             </div>
-                            <div className="col-lg-6">
+                            <div className="col-lg-5">
                                 <div className="row">
                                     <div className="col-md-6">
-                                        <StyleOne255X237/>
+                                        <StyleEleven207X202/>
                                     </div>
                                     <div className="col-md-6">
-                                        <StyleOne255X237/>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <StyleOne255X237/>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <StyleOne255X237/>
+                                        <StyleEleven207X202/>
                                     </div>
                                 </div>
+                                <StyleFour350X82/>
+                                <StyleFour350X82/>
+                                <StyleFour350X82/>
+
                             </div>
                         </div>
                     </div>
@@ -39,4 +37,4 @@ class TopSection extends Component {
     }
 }
 
-export default TopSection;
+export default TopSectionTwo;
