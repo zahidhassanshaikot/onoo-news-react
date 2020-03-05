@@ -14,7 +14,7 @@ class SearchPage extends Component {
     render() {
         return (
             <>
-                <Header history={this.props.history}/>
+                {/*<Header history={this.props.history}/>*/}
 
                 <div className="sg-page-content">
                     <div className="container">
@@ -61,7 +61,7 @@ class SearchPage extends Component {
                     </div>
                 </div>
 
-                <Footer/>
+                {/*<Footer/>*/}
             </>
         );
     }

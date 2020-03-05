@@ -8,9 +8,9 @@ class SignUpPage extends Component {
     render() {
         return (
             <>
-                <Header/>
+                {/*<Header/>*/}
                 <SignUp />
-                <Footer/>
+                {/*<Footer/>*/}
             </>
         );
     }

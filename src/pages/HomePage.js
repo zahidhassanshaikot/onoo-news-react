@@ -49,7 +49,7 @@ class HomePage extends Component {
         let {menu,ads,sliderNews,featuredNews,populerdNews,latestPost,recommendeddNews,categories,settings}=this.props.homeContent;
         return (
             <>
-                <HeaderThree/>
+                {/*<HeaderThree/>*/}
                 <HeaderAds/>
                 <TopSectionThree/>
                 <div className="sg-main-content mb-4">
@@ -87,7 +87,7 @@ class HomePage extends Component {
                         </div>
                     </div>
                 </div>
-                <FooterThree/>
+                {/*<FooterThree/>*/}
             </>
         );
     }

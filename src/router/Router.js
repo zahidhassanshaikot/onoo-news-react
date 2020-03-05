@@ -8,6 +8,9 @@ import Search from "../pages/SearchPage";
 import SignInPage from "../pages/SignInPage";
 import SignUpPage from "../pages/SignUpPage";
 import {connect} from "react-redux";
+import AuthorPage from "../pages/AuthorPage";
+import SettingPage from "../pages/SettingPage";
+import LayoutPage from "../pages/LayoutPage";
 
 
 class Router extends Component {
@@ -15,32 +18,37 @@ class Router extends Component {
         return (
             <Fragment>
                 <Switch>
+                    <LayoutPage>
+                        <Route exact path="/" component={Home} />
+                        <Route path="/details/:slug" component={Details} />
+                        <Route path="/video-gallery" component={VideoGallery} />
+                        <Route path="/search" component={Search} />
+                        <Route path="/author/:id" component={AuthorPage} />
 
-                    <Route exact path="/" component={Home} />
-                    <Route path="/details/:slug" component={Details} />
-                    <Route path="/video-gallery" component={VideoGallery} />
-                    <Route path="/search" component={Search} />
-                    <Route path="/sign-in"
-                           render={() => (
-                               this.props.auth.isAuthenticated ? (
-                                   <Redirect to="/"/>
-                               ) : (
-                                   <SignInPage/>
-                               )
-                           )}
-                           // component={SignInPage}
-                    />
-                    <Route path="/sign-up"
-                           render={() => (
-                               this.props.auth.isAuthenticated ? (
-                                   <Redirect to="/"/>
-                               ) : (
-                                   <SignInPage/>
-                               )
-                           )}
-                    />
-                    <Route path="*" component={NotFound} />
+                        <Route path="/setting" component={SettingPage} />
 
+                        <Route path="/sign-in"
+                               render={() => (
+                                   this.props.auth.isAuthenticated ? (
+                                       <Redirect to="/"/>
+                                   ) : (
+                                       <SignInPage/>
+                                   )
+                               )}
+                        />
+                        <Route path="/sign-up"
+                               render={() => (
+                                   this.props.auth.isAuthenticated ? (
+                                       <Redirect to="/"/>
+                                   ) : (
+                                       <SignUpPage/>
+                                   )
+                               )}
+                        />
+                        {/*<Route path="/error" component={NotFound} />*/}
+                        {/*<Route path="*" component={NotFound} />*/}
+                        {/*<Redirect to="/error"/>*/}
+                    </LayoutPage>
                 </Switch>
             </Fragment>
         );

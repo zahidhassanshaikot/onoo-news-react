@@ -68,24 +68,6 @@ class BreakingNewsTwo extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="sg-post">
-                            <div className="entry-content">
-                                <div className="category">
-                                    <ul className="global-list">
-                                        <li><a href="#">Technology</a></li>
-                                    </ul>
-                                </div>
-                                <h2 className="entry-title">
-                                    <a href="details.html">Airbnb bans 'party houses' even following
-                                        mass shooting</a>
-                                </h2>
-                                <div className="entry-meta">
-                                    <ul className="global-list">
-                                        <li><a href="#">2 Hours ago</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </>

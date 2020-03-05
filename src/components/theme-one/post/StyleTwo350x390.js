@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from "react-router-dom";
 
 class StyleTwo350X390 extends Component {
     render() {
@@ -20,7 +21,7 @@ class StyleTwo350X390 extends Component {
                             won't glimpse the sun for 150 days</a></h3>
                         <div className="entry-meta mb-2">
                             <ul className="global-list">
-                                <li>By <a href="#">Mahananda</a></li>
+                                <li>By <Link to="/author/1">Mahananda</Link></li>
                                 <li><a href="#">November 4, 2019</a></li>
                             </ul>
                         </div>

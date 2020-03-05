@@ -21,7 +21,7 @@ class DetailsPage extends Component {
         // let slug  = this.props.match.params.slug;
         return (
             <>
-                <Header/>
+
 
                 <div className="sg-page-content">
                     <div className="container">
@@ -56,7 +56,7 @@ class DetailsPage extends Component {
                     </div>
                 </div>
 
-                <Footer/>
+
             </>
         );
     }

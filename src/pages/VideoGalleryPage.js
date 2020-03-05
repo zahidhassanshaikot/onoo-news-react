@@ -15,7 +15,7 @@ class VideoGalleryPage extends Component {
     render() {
         return (
             <>
-                <Header/>
+                {/*<Header/>*/}
 
                 <div className="sg-page-content">
                     <div className="container">
@@ -47,7 +47,7 @@ class VideoGalleryPage extends Component {
                     </div>
                 </div>
 
-                <Footer/>
+                {/*<Footer/>*/}
             </>
         );
     }
