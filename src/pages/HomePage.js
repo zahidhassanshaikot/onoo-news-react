@@ -24,6 +24,7 @@ import PollWidget from "../components/theme-one/main-content/widget/poll-widget/
 import {withRouter} from "react-router-dom";
 import {login} from "../store/actions/authAction";
 import  {loadHomeContent} from "../store/actions/homeAction";
+import  {loadSettingsContent} from "../store/actions/settingAction";
 
 import {connect} from "react-redux";
 import VideoSection from "../components/theme-one/main-content/section/VideoSection";
@@ -42,6 +43,7 @@ class HomePage extends Component {
 
     componentDidMount() {
         this.props.loadHomeContent();
+        this.props.loadSettingsContent();
         // document.body.classList.add('sg-dark');
     }
 
@@ -95,6 +97,7 @@ class HomePage extends Component {
 
 const mapStateToProps=state=>({
     auth:state.auth,
-    homeContent:state.homeContent
+    homeContent:state.homeContent,
+    settingContent:state.settingContent
 });
-export default withRouter(connect(mapStateToProps,{loadHomeContent})(HomePage));
+export default withRouter(connect(mapStateToProps,{loadHomeContent,loadSettingsContent})(HomePage));

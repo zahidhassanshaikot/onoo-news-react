@@ -1,8 +1,8 @@
 import * as Type from './types'
 import Axios from "axios";
 
-export const loadHomeContent = () => dispatch=> {
-    Axios('home/content/',{
+export const loadSettingsContent = () => dispatch=> {
+    Axios('settings',{
         method: 'GET',
         headers: {
             // 'Authorization': `bearer ${token}`,
@@ -11,11 +11,11 @@ export const loadHomeContent = () => dispatch=> {
         }
     })
         .then(response=>{
-            // console.log(response);
+            console.log(response);
             dispatch({
-                type:Type.LOAD_HOME_CONTENT,
+                type:Type.LOAD_SETTING_CONTENT,
                 payload:{
-                    homeContent:response.data
+                    settingContent:response.data
                 }
             })
 
