@@ -1,7 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import './assets/css/main.css';
+
+import "./assets/css/bootstrap.min.css"
+// import "./assets/css/font-awesome.min.css"
+import "./assets/css/magnific-popup.css"
+import "./assets/css/animate.min.css"
+// import "./assets/css/slick.css"
+import "./assets/css/structure.css"
+import "./assets/css/main.css"
+import "./assets/css/responsive.css"
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import 'font-awesome/css/font-awesome.min.css';
+
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import store from "./store/store";

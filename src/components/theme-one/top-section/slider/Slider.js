@@ -1,10 +1,23 @@
 import React, {Component} from 'react';
+import SlickSlider from "react-slick";
 
 class Slider extends Component {
     render() {
+        var settings = {
+            infinite: true,
+            dots: false,
+            arrows: true,
+            slidesToShow: 1,
+            autoplay:true,
+            autoplaySpeed:10000,
+            slidesToScroll: 1,
+            nextArrow: <SampleNextArrow />,
+            prevArrow: <SamplePrevArrow />,
+        };
         return (
             <>
-                <div className="post-slider">
+                <SlickSlider {...settings} className="post-slider">
+                {/*<div className="post-slider">*/}
                     <div className="sg-post featured-post">
                         <div className="entry-header">
                             <div className="entry-thumbnail">
@@ -63,10 +76,35 @@ class Slider extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                {/*</div>*/}
+                </SlickSlider>
             </>
         );
     }
 }
+
+function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className="fa fa-angle-right slick-arrow"
+            style={{ ...style, display: "block" }}
+            onClick={onClick}
+        />
+    );
+}
+
+function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+        <i
+            className="fa fa-angle-left slick-arrow"
+            style={{ ...style, display: "block"}}
+            onClick={onClick}
+        >
+        </i>
+    );
+}
+
 
 export default Slider;

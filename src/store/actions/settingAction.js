@@ -11,7 +11,7 @@ export const loadSettingsContent = () => dispatch=> {
         }
     })
         .then(response=>{
-            console.log(response);
+            // console.log(response);
             dispatch({
                 type:Type.LOAD_SETTING_CONTENT,
                 payload:{

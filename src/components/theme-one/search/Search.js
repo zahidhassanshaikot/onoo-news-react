@@ -27,7 +27,7 @@ class Search extends Component {
             <>
                 <div className="sg-search">
                     <div className="search-form">
-                        <form onSubmit={this.submitHandler} name="search_key" onChange={this.changeHandler} id="search" >
+                        <form onSubmit = { this.submitHandler } name="search_key" onChange={this.changeHandler} id="search" >
                             <input className="form-control" name="search" type="text"
                                    placeholder="Search here.."/>
                             <button type="submit"><i className="fa fa-search"></i></button>

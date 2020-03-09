@@ -7,8 +7,8 @@ import settingReducer from "./settingReducer";
 
 const rootReducer=combineReducers({
     auth:authReducer,
-    homeContent:homeReducer,
     settingContent:settingReducer,
+    homeContent:homeReducer,
 });
 
 export default rootReducer;

@@ -42,18 +42,24 @@ class HomePage extends Component {
     }
 
     componentDidMount() {
-        this.props.loadHomeContent();
         this.props.loadSettingsContent();
-        // document.body.classList.add('sg-dark');
+        this.props.loadHomeContent();
     }
 
     render() {
-        let {menu,ads,sliderNews,featuredNews,populerdNews,latestPost,recommendeddNews,categories,settings}=this.props.homeContent;
+        let theme = this.props.settingContent.theme;
+        let {primary_section_style}= {...theme};
+
         return (
             <>
-                {/*<HeaderThree/>*/}
                 <HeaderAds/>
-                <TopSectionThree/>
+                {
+                    primary_section_style === 'style_1' ? <TopSection/>
+                    : primary_section_style === 'style_2' ? <TopSectionTwo/>
+                    : primary_section_style === 'style_3' ? <TopSectionThree/>
+                    : <BreakingNews/>
+                }
+                {/*<TopSectionTwo/>*/}
                 <div className="sg-main-content mb-4">
                     <div className="container">
                         <div className="row">
@@ -89,7 +95,6 @@ class HomePage extends Component {
                         </div>
                     </div>
                 </div>
-                {/*<FooterThree/>*/}
             </>
         );
     }
@@ -97,7 +102,7 @@ class HomePage extends Component {
 
 const mapStateToProps=state=>({
     auth:state.auth,
+    settingContent:state.settingContent,
     homeContent:state.homeContent,
-    settingContent:state.settingContent
 });
 export default withRouter(connect(mapStateToProps,{loadHomeContent,loadSettingsContent})(HomePage));

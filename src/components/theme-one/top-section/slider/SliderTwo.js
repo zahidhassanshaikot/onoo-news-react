@@ -1,10 +1,78 @@
 import React, {Component} from 'react';
+import SlickSlider from "react-slick";
 
 class SliderTwo extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            nav1: null,
+            nav2: null
+        };
+    }
+
+    componentDidMount() {
+        this.setState({
+            nav1: this.slider1,
+            nav2: this.slider2
+        });
+    }
+
     render() {
+        var settingsHomeSlider = {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            dots: false,
+            speed: 1500,
+            autoplay:true,
+            nextArrow: <SampleNextArrow />,
+            prevArrow: <SamplePrevArrow />,
+            asNavFor: '.home-slider-nav'
+        };
+        var settingsHomeSliderNav = {
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            asNavFor: '.home-slider',
+            dots: false,
+            speed: 1500,
+            arrows: false,
+            focusOnSelect: true,
+            swipeToSlide:true,
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow:4,
+                    }
+                },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 3,
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                },
+                {
+                    breakpoint: 481,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                }
+            ]
+        };
         return (
             <>
-                <div className="home-slider">
+                <SlickSlider {...settingsHomeSlider}
+                    asNavFor={this.state.nav2}
+                    ref={slider => (this.slider1 = slider)}
+                    className="home-slider"
+                >
                     <div className="sg-post featured-post">
                         <div className="entry-header">
                             <div className="entry-thumbnail">
@@ -133,10 +201,14 @@ class SliderTwo extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </SlickSlider>
 
 
-                <div className="home-slider-nav">
+                <SlickSlider {...settingsHomeSliderNav}
+                    asNavFor={this.state.nav1}
+                    ref={slider => (this.slider2 = slider)}
+                    className="home-slider-nav"
+                >
                     <div className="thumb">
                         <img
                             className="img-fluid"
@@ -179,10 +251,34 @@ class SliderTwo extends Component {
                             alt="Image"
                         />
                     </div>
-                </div>
+                </SlickSlider>
             </>
         );
     }
 }
+function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className="fa fa-angle-right slick-arrow"
+            style={{ ...style, display: "block" }}
+            onClick={onClick}
+        />
+    );
+}
+
+function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+        <i
+            className="fa fa-angle-left slick-arrow"
+            style={{ ...style, display: "block"}}
+            onClick={onClick}
+        >
+        </i>
+    );
+}
+
+
 
 export default SliderTwo;
