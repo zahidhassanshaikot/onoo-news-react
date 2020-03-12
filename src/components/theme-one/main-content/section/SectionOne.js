@@ -18,16 +18,16 @@ class SectionOne extends Component {
                             <div className="col-lg-6">
                                 <div className="row">
                                     <div className="col-md-6">
-                                        <StyleThree160X181/>
+                                        {/*<StyleThree160X181/>*/}
                                     </div>
                                     <div className="col-md-6">
-                                        <StyleThree160X181/>
+                                        {/*<StyleThree160X181/>*/}
                                     </div>
                                     <div className="col-md-6">
-                                        <StyleThree160X181/>
+                                        {/*<StyleThree160X181/>*/}
                                     </div>
                                     <div className="col-md-6">
-                                        <StyleThree160X181/>
+                                        {/*<StyleThree160X181/>*/}
                                     </div>
                                 </div>
                             </div>

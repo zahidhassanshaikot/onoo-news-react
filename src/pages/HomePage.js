@@ -84,7 +84,7 @@ class HomePage extends Component {
                                     <SocialWidget/>
                                     <SidebarAds/>
                                     <NewsletterWidget/>
-                                    <RecentPostWidget/>
+                                    {/*<RecentPostWidget/>*/}
                                     <SidebarAds/>
                                     <RecommendedPostWidget/>
                                     <TegWidget/>

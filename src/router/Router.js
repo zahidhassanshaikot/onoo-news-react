@@ -20,6 +20,7 @@ class Router extends Component {
                 <Switch>
                     <LayoutPage>
                         <Route exact path="/" component={Home} />
+                        <Route exact path="/home" component={Home} />
                         <Route path="/details/:slug" component={Details} />
                         <Route path="/video-gallery" component={VideoGallery} />
                         <Route path="/search" component={Search} />
