@@ -24,6 +24,8 @@ class Topbar extends Component {
     }
 
     render() {
+        let {menu,languages} = this.props.settingContent;
+        // console.log(languages);
         return (
             <>
                 <div className="sg-topbar">
@@ -46,9 +48,13 @@ class Topbar extends Component {
                                     </div>
                                     <div className="sg-language">
                                         <select>
-                                            <option value="">English</option>
-                                            <option value="">English</option>
-                                            <option value="">English</option>
+                                            {
+                                                languages.map((item,index)=>(
+                                                    // console.log(language)
+                                                    <option value="" key={index}>{item.id}</option>
+                                                ))
+                                            }
+
                                         </select>
                                     </div>
                                 </div>
@@ -78,7 +84,8 @@ class Topbar extends Component {
                                             <React.Fragment>
                                                 <div className="sg-user">
                                                 <span><i className="fa fa-user-circle mr-2" aria-hidden="true"></i>
-                                                    <Link to="/sign-in">Login</Link> / <Link to="/sign-up"> SignUp</Link>
+                                                    <Link to="/sign-in">Login</Link> /
+                                                    <Link to="/sign-up"> SignUp</Link>
                                                 </span>
                                                 </div>
                                             </React.Fragment>
@@ -95,7 +102,8 @@ class Topbar extends Component {
     }
 }
 const mapStateToProps = state =>({
-    auth:state.auth
+    auth:state.auth,
+    settingContent:state.settingContent
 })
 
 export default withRouter(connect(mapStateToProps,{logout})(Topbar));

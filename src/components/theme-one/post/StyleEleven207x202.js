@@ -11,7 +11,7 @@ class StyleEleven207X202 extends Component {
                                 <img
                                     className="img-fluid"
                                     src={ require("../../../assets/images/post/4.jpg") }
-                                    alt="Image"
+                                    alt="post_image"
                                 /></a>
                         </div>
                         <div className="category">

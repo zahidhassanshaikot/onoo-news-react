@@ -11,7 +11,7 @@ class StyleTen185X140 extends Component {
                                 <img
                                     className="img-fluid"
                                     src={ require("../../../assets/images/post/1.jpg") }
-                                    alt="Image"
+                                    alt="post_image"
                                 />
                             </a>
                         </div>

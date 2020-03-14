@@ -2,6 +2,7 @@ import * as Types from '../actions/types'
 const init ={
     default_language: null,
     timezone: null,
+    languages:[{}],
     menu: [{menu_item:[{}]},{menu_item:[{}]},{menu_item:[{}]}],
     branding: {},
     seo: {},

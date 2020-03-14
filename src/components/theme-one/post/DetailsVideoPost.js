@@ -10,7 +10,7 @@ class DetailsVideoPost extends Component {
                             <img
                                 className="img-fluid"
                                 src={ require("../../../assets/images/post/video-gallery.jpg") }
-                                alt="Image"
+                                alt="post_image"
                             />
                         </div>
                         <div className="video-icon">

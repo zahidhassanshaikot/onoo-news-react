@@ -11,7 +11,7 @@ class VideoStyle350X212 extends Component {
                                 <img
                                     className="img-fluid"
                                     src={ require("../../../assets/images/post/mid1.jpg") }
-                                    alt="Image"
+                                    alt="post_image"
                                 />
                                 </a>
                         </div>

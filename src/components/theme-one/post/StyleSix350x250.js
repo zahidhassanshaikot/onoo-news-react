@@ -10,7 +10,7 @@ class StyleSix350X250 extends Component {
                             <a href="details.html">
                                 <img className="img-fluid"
                                      src={ require("../../../assets/images/post/25.jpg") }
-                                     alt="Image"
+                                     alt="post_image"
                                 />
                             </a>
                         </div>

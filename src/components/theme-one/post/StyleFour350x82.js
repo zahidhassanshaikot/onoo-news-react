@@ -10,7 +10,7 @@ class StyleFour350X82 extends Component {
                             <a href="details.html">
                                 <img className="img-fluid"
                                      src={ require("../../../assets/images/post/sm5.jpg") }
-                                     alt="Image"
+                                     alt="post_image"
                                 />
                             </a>
                         </div>

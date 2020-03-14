@@ -5,6 +5,9 @@ import {Link, NavLink, withRouter} from "react-router-dom";
 import Search from "../../search/Search";
 import {connect} from "react-redux";
 import {loadSettingsContent} from "../../../../store/actions/settingAction";
+import SingleMenu from "./menu-style/SingleMenu";
+import DropdownMenu from "./menu-style/DropdownMenu";
+import MegaDropdownMenu from "./menu-style/MegaDropdownMenu";
 
 class Menu extends Component {
     constructor() {
@@ -19,7 +22,7 @@ class Menu extends Component {
     }
 
     render() {
-        let menu = this.props.settingContent.menu;
+        let {menu, branding} = this.props.settingContent;
         return (
             <>
                 <div className="sg-menu">
@@ -28,7 +31,7 @@ class Menu extends Component {
                             <div className="menu-content">
                                 <Link className="navbar-brand" to="/">
                                     <img
-                                        src={logo}
+                                        src={branding.logo}
                                         alt="Logo"
                                         className="img-fluid"
                                     />
@@ -50,66 +53,53 @@ class Menu extends Component {
                                 <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                                     <ul  className="navbar-nav">
                                         {
-                                            menu[1].menu_item.map(item=>(
+                                            menu[1].menu_item.map((item,index)=>(
                                                 item.source==='page'?
-                                                    (<li><NavLink target={(item.new_teb === 1) ? "_blank" : ""} to={'/'+item.page.slug} exact activeStyle={{color: '#00a8ee'}}>{item.label}</NavLink></li>)
+                                                    item.children.length === 0 ?
+                                                        (
+                                                            <SingleMenu
+                                                                new_teb={item.new_teb}
+                                                                slug={item.page.slug}
+                                                                label={item.label}
+                                                                uniqueKey={index}
+                                                            />
+                                                        )
+                                                        :
+                                                        (
+                                                            <DropdownMenu
+                                                                label={item.label}
+                                                                children={item.children}
+                                                                uniqueKey={index}
+                                                            />
+                                                        )
                                                 :item.source==='custom'?
-                                                    (<li><a target={(item.new_teb === 1) ? "_blank" : ""} href={item.url} exact activeStyle={{color: '#00a8ee'}}>{item.label} </a></li>)
+                                                    (
+                                                        item.children.length === 0 ?
+                                                            (
+                                                                <SingleMenu
+                                                                    new_teb={item.new_teb}
+                                                                    label={item.label}
+                                                                    url={item.url}
+                                                                    uniqueKey={index}
+                                                                />
+                                                            )
+                                                            :
+                                                            (
+                                                                <DropdownMenu
+                                                                    label={item.label}
+                                                                    children={item.children}
+                                                                    uniqueKey={index}
+                                                                />
+                                                            )
+                                                    )
                                                 :item.source==='category'?
-                                                    (<li className="sg-dropdown mega-dropdown">
-                                                        <a href="#">{item.label}<span>
-                                                            <i className="fa fa-angle-down" aria-hidden="true"></i></span>
-                                                        </a>
-                                                        <div className="sg-dropdown-menu mega-dropdown-menu">
-                                                            <div className="mega-menu-content">
-                                                                <div className="row">
-                                                                    <div className="col-md-2">
-                                                                        <ul className="nav nav-tabs" role="tablist">
-                                                                            {
-                                                                                item.category.subcategory.map((subcategory,index)=>(
-
-                                                                                    <li className="nav-item">
-                                                                                        <a className={(index === 0) ? 'nav-link active' : 'nav-link'} id={subcategory.slug+'-tab'}
-                                                                                           data-toggle="tab" href={'#'+subcategory.slug} role="tab"
-                                                                                           aria-controls={subcategory.slug} aria-selected={(index === 0) ? true : false}>{ subcategory.sub_category_name }</a>
-                                                                                    </li>
-                                                                                ))
-                                                                            }
-
-                                                                        </ul>
-                                                                    </div>
-                                                                    <div className="col-md-10">
-                                                                        <div className="tab-content" id="myTabContent">
-                                                                            {
-                                                                                item.category.subcategory.map((subcategory,index)=>(
-                                                                                    <div className={(index === 0) ? 'tab-pane fade show active' : 'tab-pane fade'} id={subcategory.slug} role="tabpanel" aria-labelledby={subcategory.slug+'-tab'}>
-                                                                                        <div className="row">
-                                                                                            {
-                                                                                                subcategory.post.map((post,index)=>(
-                                                                                                    <div className="col-md-6 col-lg-3">
-                                                                                                        <StyleThree160X181
-                                                                                                            id={post.id}
-                                                                                                            title={post.title}
-                                                                                                            slug={post.slug}
-                                                                                                            created_at={post.created_at}
-                                                                                                            image={post.image}
-                                                                                                            video={post.video}
-
-                                                                                                        />
-                                                                                                    </div>
-                                                                                                ))
-                                                                                            }
-                                                                                        </div>
-                                                                                    </div>
-                                                                                ))
-                                                                            }
-
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>)
+                                                    (
+                                                        <MegaDropdownMenu
+                                                            label={item.label}
+                                                            category={item.category}
+                                                            uniqueKey={index}
+                                                        />
+                                                    )
                                                 :<></>
                                             ))
                                         }

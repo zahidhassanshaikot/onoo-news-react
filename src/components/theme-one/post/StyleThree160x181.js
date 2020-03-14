@@ -13,7 +13,7 @@ class StyleThree160X181 extends Component {
                             <Link to="/details/slug">
                                 <img className="img-fluid"
                                      src={ this.props.image.small_image }
-                                     alt="Image"
+                                     alt="post_image"
                                 />
                             </Link>
                         </div>

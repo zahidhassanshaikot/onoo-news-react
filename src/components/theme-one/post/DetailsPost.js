@@ -10,7 +10,7 @@ class DetailsPost extends Component {
                             <img
                                 className="img-fluid"
                                 src={ require("../../../assets/images/post/details.jpg") }
-                                alt="Image"
+                                alt="post_image"
                             />
                         </div>
                     </div>

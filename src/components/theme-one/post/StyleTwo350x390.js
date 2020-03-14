@@ -11,7 +11,7 @@ class StyleTwo350X390 extends Component {
                             <a href="details.html">
                                 <img className="img-fluid"
                                      src={ require("../../../assets/images/post/6.jpg") }
-                                     alt="Image"
+                                     alt="post_image"
                                 />
                             </a>
                         </div>
