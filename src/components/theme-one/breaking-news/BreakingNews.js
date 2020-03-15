@@ -29,6 +29,8 @@ class BreakingNews extends Component {
             nextArrow: <SampleNextArrow />,
             prevArrow: <SamplePrevArrow />,
         };
+        let breaking_news = this.props.breaking_news;
+        console.log(this.props.breaking_news);
         return (
             <>
                 <div className="sg-breaking-news">
@@ -36,9 +38,13 @@ class BreakingNews extends Component {
                         <div className="breaking-content d-flex">
                             <span>Breaking News</span>
                             <SlickSlider  {...settings} className="news-ticker">
-                                <li><a href="#">Plastic is being recycled into fuel and this cannabis company wants
-                                    in</a></li>
-                                <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+                                {
+                                    breaking_news.map((news,index)=>(
+                                        <li key={index}><a href="#">{news.title}</a></li>
+                                    ))
+                                }
+
+                                {/*<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>*/}
                             </SlickSlider>
                         </div>
                     </div>

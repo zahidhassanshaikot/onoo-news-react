@@ -2,7 +2,7 @@ import * as Type from './types'
 import Axios from "axios";
 
 export const loadHomeContent = () => dispatch=> {
-    Axios('home/content/',{
+    Axios('/home/content/',{
         method: 'GET',
         headers: {
             // 'Authorization': `bearer ${token}`,

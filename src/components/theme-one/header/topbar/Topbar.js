@@ -4,6 +4,7 @@ import moment from "moment";
 import {Link, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {logout} from "./../../../../store/actions/authAction"
+import SocialButton from "../../theme-icon/SocialButton";
 
 class Topbar extends Component {
 
@@ -24,7 +25,7 @@ class Topbar extends Component {
     }
 
     render() {
-        let {menu,languages} = this.props.settingContent;
+        let {menu, languages, default_language, social_media} = this.props.settingContent;
         // console.log(languages);
         return (
             <>
@@ -47,11 +48,11 @@ class Topbar extends Component {
                                         <ToggleButton/>
                                     </div>
                                     <div className="sg-language">
-                                        <select>
+                                        <select className="border-0 bg-transparent">
                                             {
                                                 languages.map((item,index)=>(
                                                     // console.log(language)
-                                                    <option value="" key={index}>{item.id}</option>
+                                                    <option selected = {(item.code === default_language) ? true : false} value={item.code} key={index}>{item.name}</option>
                                                 ))
                                             }
 
@@ -61,14 +62,41 @@ class Topbar extends Component {
                                 <div className="d-flex">
                                     <div className="sg-social mr-md-5">
                                         <ul className="global-list">
-                                            <li><a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a>
-                                            </li>
-                                            <li><a href="#"><i className="fa fa-twitter" aria-hidden="true"></i></a>
-                                            </li>
-                                            <li><a href="#"><i className="fa fa-google-plus" aria-hidden="true"></i></a>
-                                            </li>
-                                            <li><a href="#"><i className="fa fa-linkedin" aria-hidden="true"></i></a>
-                                            </li>
+                                            <SocialButton
+                                                li_class=""
+                                                i_class="fa fa-facebook"
+                                                url={social_media.fb_url}
+                                            />
+                                            <SocialButton
+                                                li_class=""
+                                                i_class="fa fa-twitter"
+                                                url={social_media.twitter_url}
+                                            />
+                                            <SocialButton
+                                                li_class=""
+                                                i_class="fa fa-google-plus"
+                                                url={social_media.google_url}
+                                            />
+                                            <SocialButton
+                                                li_class=""
+                                                i_class="fa fa-linkedin"
+                                                url={social_media.linkedin_url}
+                                            />
+                                            <SocialButton
+                                                li_class=""
+                                                i_class="fa fa-pinterest"
+                                                url={social_media.pinterest_url}
+                                            />
+                                            <SocialButton
+                                                li_class=""
+                                                i_class="fa fa-youtube-play"
+                                                url={social_media.youtube_url}
+                                            />
+                                            <SocialButton
+                                                li_class=""
+                                                i_class="fa fa-instagram"
+                                                url={social_media.instagram_url}
+                                            />
                                         </ul>
                                     </div>
                                     {
@@ -84,6 +112,7 @@ class Topbar extends Component {
                                             <React.Fragment>
                                                 <div className="sg-user">
                                                 <span><i className="fa fa-user-circle mr-2" aria-hidden="true"></i>
+
                                                     <Link to="/sign-in">Login</Link> /
                                                     <Link to="/sign-up"> SignUp</Link>
                                                 </span>

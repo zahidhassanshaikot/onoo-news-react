@@ -4,7 +4,7 @@ import jwtDecode from 'jwt-decode';
 import setAuthToken from "../../utils/setAuthToken";
 
 export const register = (user,history) => dispatch=> {
-    Axios('register',{
+    Axios('/register',{
         method: 'POST',
         data: user,
         headers: {
@@ -42,7 +42,7 @@ export const register = (user,history) => dispatch=> {
 
 export const login =(user,history)=>dispatch=>{
 
-    Axios.post('login',user)
+    Axios.post('/login',user)
         .then(res=>{
             let token = res.data.data;
             // let token = 'Bearer '+ res.data.data;

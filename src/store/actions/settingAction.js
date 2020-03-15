@@ -2,7 +2,7 @@ import * as Type from './types'
 import Axios from "axios";
 
 export const loadSettingsContent = () => dispatch=> {
-    Axios('settings',{
+    Axios('/settings',{
         method: 'GET',
         headers: {
             // 'Authorization': `bearer ${token}`,

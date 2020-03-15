@@ -6,9 +6,12 @@ import BreakingNews from "../breaking-news/BreakingNews";
 
 class TopSection extends Component {
     render() {
+        let news =this.props.news
+        let {slider_news, featured_news, breaking_news} = {...news}
+        // console.log(slider_news);
         return (
             <>
-                <BreakingNews/>
+                <BreakingNews breaking_news={breaking_news}/>
                 <div className="sg-home-section">
                     <div className="container">
                         <div className="row">

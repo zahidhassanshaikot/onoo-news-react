@@ -12,7 +12,7 @@ import FooterTwo from "../components/theme-one/footer/FooterTwo";
 class LayoutPage extends Component {
 
 componentDidMount() {
-    // this.props.loadSettingsContent();
+    this.props.loadSettingsContent();
 }
 
     render() {
@@ -45,4 +45,4 @@ const mapStateToProps=state=>({
     settingContent:state.settingContent
 });
 
-export default withRouter(connect(mapStateToProps)(LayoutPage));
+export default withRouter(connect(mapStateToProps,{loadSettingsContent})(LayoutPage));

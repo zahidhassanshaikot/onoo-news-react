@@ -49,15 +49,17 @@ class HomePage extends Component {
     render() {
         let theme = this.props.settingContent.theme;
         let {primary_section_style}= {...theme};
+        let {primary_section} = this.props.homeContent;
+        let {news} ={...primary_section}
 
         return (
             <>
                 <HeaderAds/>
                 {
-                    primary_section_style === 'style_1' ? <TopSection/>
-                    : primary_section_style === 'style_2' ? <TopSectionTwo/>
-                    : primary_section_style === 'style_3' ? <TopSectionThree/>
-                    : <BreakingNews/>
+                    primary_section_style === 'style_1' ? <TopSection news={news}/>
+                    : primary_section_style === 'style_2' ? <TopSectionTwo news={news}/>
+                    : primary_section_style === 'style_3' ? <TopSectionThree news={news}/>
+                    : <></>
                 }
                 {/*<TopSectionTwo/>*/}
                 <div className="sg-main-content mb-4">

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Switch from 'react-toggle-switch';
+import Cookies from 'universal-cookie';
 
 class ToggleButton extends Component {
 
@@ -9,11 +10,24 @@ class ToggleButton extends Component {
             switched: false
         };
     }
+    componentDidMount() {
+        const cookies = new Cookies();
+        if(cookies.get('themeDarkMode')=='true'){
+            this.setState({switched:true})
+        }else{
+            this.setState({switched:false})
+        }
+    }
+
     componentDidUpdate(prevProps, prevState, snapshot) {
+        const cookies = new Cookies();
+
         if(this.state.switched===true){
             document.body.classList.add('sg-dark');
+            cookies.set('themeDarkMode', true, { path: '/' });
         }else{
             document.body.classList.remove('sg-dark');
+            cookies.set('themeDarkMode', false, { path: '/' });
         }
     }
     toggleSwitch = () => {
@@ -25,6 +39,7 @@ class ToggleButton extends Component {
     };
 
     render() {
+
         return (
             <div>
                 <Switch onClick={this.toggleSwitch} on={this.state.switched}>
