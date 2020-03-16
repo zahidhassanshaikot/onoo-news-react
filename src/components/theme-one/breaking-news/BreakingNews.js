@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import SlickSlider from "react-slick";
+import {Link} from "react-router-dom";
 
 class BreakingNews extends Component {
     constructor(props) {
@@ -30,22 +31,27 @@ class BreakingNews extends Component {
             prevArrow: <SamplePrevArrow />,
         };
         let breaking_news = this.props.breaking_news;
-        console.log(this.props.breaking_news);
         return (
+
             <>
                 <div className="sg-breaking-news">
                     <div className="container">
                         <div className="breaking-content d-flex">
                             <span>Breaking News</span>
-                            <SlickSlider  {...settings} className="news-ticker">
-                                {
-                                    breaking_news.map((news,index)=>(
-                                        <li key={index}><a href="#">{news.title}</a></li>
-                                    ))
-                                }
+                            {
 
-                                {/*<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>*/}
-                            </SlickSlider>
+                                breaking_news.length > 0 ?
+                                    <SlickSlider  {...settings} className="news-ticker">
+                                        {
+                                            breaking_news.map((news,index)=>(
+                                                <li key={index}><Link to={"/details/"+news.slug}>{news.title}</Link></li>
+                                            ))
+                                        }
+                                    </SlickSlider>
+                                    :null
+
+                            }
+
                         </div>
                     </div>
                 </div>

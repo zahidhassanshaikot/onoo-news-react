@@ -49,7 +49,7 @@ class HomePage extends Component {
     render() {
         let theme = this.props.settingContent.theme;
         let {primary_section_style}= {...theme};
-        let {primary_section} = this.props.homeContent;
+        let {primary_section, dynamic_section} = this.props.homeContent;
         let {news} ={...primary_section}
 
         return (
@@ -68,13 +68,44 @@ class HomePage extends Component {
                             <div className="col-md-7 col-lg-8 sg-sticky">
                                 <div className="theiaStickySidebar">
 
-                                    <SectionOne/>
-                                    <SectionTwo/>
+                                    {
+                                        dynamic_section.map((section,index)=>
+                                            section.section_style === "style_1" ?
+                                                <SectionOne
+                                                    key={index}
+                                                    section={section}
+                                                />
+                                            :section.section_style === "style_2"?
+                                                <SectionTwo
+                                                    key={index}
+                                                    section={section}
+                                                />
+                                            :section.section_style === "style_3"?
+                                                <SectionThree
+                                                    key={index}
+                                                    section={section}
+                                                />
+                                            :section.section_style === "style_4"?
+                                                <SectionFour
+                                                    key={index}
+                                                    section={section}
+                                                />
+                                            :section.section_style === "style_5"?
+                                                <SectionFive
+                                                    key={index}
+                                                    section={section}
+                                                />
+                                            :null
+                                        )
+                                    }
+
+                                    {/*<SectionOne/>*/}
+                                    {/*<SectionTwo/>*/}
+                                    {/*<ContentAds/>*/}
+                                    {/*<SectionThree/>*/}
+                                    {/*<SectionFour/>*/}
                                     <ContentAds/>
-                                    <SectionThree/>
-                                    <SectionFour/>
-                                    <ContentAds/>
-                                    <SectionFive/>
+                                    {/*<SectionFive/>*/}
                                     <VideoSection/>
                                     <SectionSix/>
 

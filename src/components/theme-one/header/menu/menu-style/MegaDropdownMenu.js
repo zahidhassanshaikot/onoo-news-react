@@ -37,13 +37,7 @@ class MegaDropdownMenu extends Component {
                                                             subcategory.post.map((post,index)=>(
                                                                 <div className="col-md-6 col-lg-3" key={index}>
                                                                     <StyleThree160X181
-                                                                        id={post.id}
-                                                                        title={post.title}
-                                                                        slug={post.slug}
-                                                                        created_at={post.created_at}
-                                                                        image={post.image}
-                                                                        video={post.video}
-
+                                                                        news={post}
                                                                     />
                                                                 </div>
                                                             ))

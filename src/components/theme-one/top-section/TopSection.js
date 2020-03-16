@@ -6,9 +6,8 @@ import BreakingNews from "../breaking-news/BreakingNews";
 
 class TopSection extends Component {
     render() {
-        let news =this.props.news
-        let {slider_news, featured_news, breaking_news} = {...news}
-        // console.log(slider_news);
+        let news =this.props.news;
+        let {slider_news, featured_news, breaking_news} = {...news};
         return (
             <>
                 <BreakingNews breaking_news={breaking_news}/>
@@ -16,22 +15,18 @@ class TopSection extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-6">
-                                <Slider/>
+                                <Slider slider_news={slider_news} />
                             </div>
                             <div className="col-lg-6">
                                 <div className="row">
-                                    <div className="col-md-6">
-                                        <StyleOne255X237/>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <StyleOne255X237/>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <StyleOne255X237/>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <StyleOne255X237/>
-                                    </div>
+
+                                    {
+                                        featured_news.map((news,index)=>(
+                                            <div key={index} className="col-md-6">
+                                                <StyleOne255X237 news={news}/>
+                                            </div>
+                                        ))
+                                    }
                                 </div>
                             </div>
                         </div>

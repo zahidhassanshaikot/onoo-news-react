@@ -4,12 +4,13 @@ import StyleThree160X181 from "../../post/StyleThree160x181";
 
 class SectionOne extends Component {
     render() {
+        let section = this.props.section;
         return (
             <>
                 <div className="sg-section">
                     <div className="section-content">
                         <div className="section-title">
-                            <h1>Entertainment</h1>
+                            <h1>{section.label}</h1>
                         </div>
                         <div className="row">
                             <div className="col-lg-6">

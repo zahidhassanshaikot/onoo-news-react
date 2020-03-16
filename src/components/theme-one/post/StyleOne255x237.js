@@ -1,19 +1,22 @@
 import React, {Component} from 'react';
+import {Link} from "react-router-dom";
+import default_image from '../../../assets/images/default_image/258x215.png';
 
 class StyleOne255X237 extends Component {
     render() {
+        let news = this.props.news;
         return (
             <>
                 <div className="sg-post">
                     <div className="entry-header">
                         <div className="entry-thumbnail">
-                            <a href="details.html">
+                            <Link to={"/details/"+news.slug}>
                                 <img
                                     className="img-fluid"
-                                    src={ require("../../../assets/images/post/2.jpg") }
+                                    src={ news.image ? news.image.small_image : default_image}
                                     alt="post_image"
                                 />
-                            </a>
+                            </Link>
                         </div>
                         <div className="category">
                             <ul className="global-list">

@@ -3,14 +3,14 @@ import * as Types from '../actions/types'
 const init={
     primary_section:{
         news:{
-            slider_news:[{}],
-            featured_news:[{}],
-            breaking_news:[{}],
+            slider_news:[],
+            featured_news:[],
+            breaking_news:[],
         }
         },
-    dynamic_section:[{post:[{}]}],
-    videos:[{}],
-    latest_post:[{}],
+    dynamic_section:[{post:[]}],
+    videos:[],
+    latest_post:[],
 }
 
 const homeReducer =(state= init,action) =>{
