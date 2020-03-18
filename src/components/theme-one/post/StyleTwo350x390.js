@@ -1,33 +1,42 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
+import default_image from '../../../assets/images/default_image/460x350.png';
+import moment from "moment";
+import ReactHtmlParser from 'react-html-parser';
+import Truncate from 'react-truncate';
 
 class StyleTwo350X390 extends Component {
     render() {
+        let news = this.props.news;
+        // console.log(news);
         return (
             <>
                 <div className="sg-post">
                     <div className="entry-header">
                         <div className="entry-thumbnail">
-                            <a href="details.html">
+                            <Link to={"/details/"+news.slug}>
                                 <img className="img-fluid"
-                                     src={ require("../../../assets/images/post/6.jpg") }
+                                     src={ news.image ? news.image.medium_image_three : default_image}
                                      alt="post_image"
                                 />
-                            </a>
+                            </Link>
                         </div>
                     </div>
                     <div className="entry-content">
-                        <h3 className="entry-title"><a href="#">Seafaring scientists
-                            won't glimpse the sun for 150 days</a></h3>
+                        <h3 className="entry-title">
+                            <Link to={"/details/"+news.slug}>{news.title}</Link>
+                        </h3>
                         <div className="entry-meta mb-2">
                             <ul className="global-list">
-                                <li>By <Link to="/author/1">Mahananda</Link></li>
-                                <li><a href="#">November 4, 2019</a></li>
+                                <li>By <Link to={"/author/"+news.user.id}>{news.user.last_name}</Link></li>
+                                <li><Link href="#">{moment(news.created_at).format('MMM DD, YYYY')}</Link></li>
                             </ul>
                         </div>
-                        <p>In the heart of the central Arctic, scientists have
-                            intentionally lodged their 387-foot-long and over
-                            12,000-ton ship, Polarstern</p>
+                        <p>
+                            <Truncate lines={2} ellipsis={<span>..... </span>}>
+                                {ReactHtmlParser(ReactHtmlParser(news.content))}
+                            </Truncate>
+                        </p>
                     </div>
                 </div>
             </>

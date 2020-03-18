@@ -1,26 +1,38 @@
 import React, {Component} from 'react';
+import default_image from "../../../assets/images/default_image/240x160.png";
+import {Link} from "react-router-dom";
+import Truncate from "react-truncate";
+import moment from "moment";
 
 class StyleFour350X82 extends Component {
     render() {
+        let news = this.props.news;
         return (
             <>
                 <div className="sg-post small-post post-style-1">
                     <div className="entry-header">
                         <div className="entry-thumbnail">
-                            <a href="details.html">
+                            <Link  to={"/details/"+news.slug}>
                                 <img className="img-fluid"
-                                     src={ require("../../../assets/images/post/sm5.jpg") }
+                                     // src={ default_image}
+                                     src={ news.image ? news.image.small_image : default_image}
                                      alt="post_image"
                                 />
-                            </a>
+                            </Link>
                         </div>
                     </div>
                     <div className="entry-content">
-                        <p>On 'SNL,' Elizabeth Warren taxes to Jeff Bezos like small
-                            child</p>
+
+                            <Truncate
+                                lines={1}
+                                ellipsis={<span>..... </span>}
+                            >
+                                <p>{news.title}</p>
+                            </Truncate>
+
                         <div className="entry-meta">
                             <ul className="global-list">
-                                <li>By <a href="#">May 4, 2019</a></li>
+                                <li>By <a href="#">{moment(news.created_at).format('MMM DD, YYYY')}</a></li>
                             </ul>
                         </div>
                     </div>

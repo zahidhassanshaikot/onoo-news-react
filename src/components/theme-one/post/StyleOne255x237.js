@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import default_image from '../../../assets/images/default_image/258x215.png';
+import Truncate from "react-truncate";
 
 class StyleOne255X237 extends Component {
     render() {
@@ -20,12 +21,16 @@ class StyleOne255X237 extends Component {
                         </div>
                         <div className="category">
                             <ul className="global-list">
-                                <li><a href="#">Technology</a></li>
+                                <li><a href="#">{news.category.category_name}</a></li>
                             </ul>
                         </div>
                     </div>
                     <div className="entry-content">
-                        <p>Greta Thunberg let Leonardo DiCaprio take an Instagram</p>
+                        <p>
+                            <Truncate lines={2} ellipsis={<span>..... </span>}>
+                                {news.title}
+                            </Truncate>
+                        </p>
                     </div>
                 </div>
             </>

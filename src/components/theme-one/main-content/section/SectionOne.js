@@ -13,26 +13,57 @@ class SectionOne extends Component {
                             <h1>{section.label}</h1>
                         </div>
                         <div className="row">
+
                             <div className="col-lg-6">
-                                <StyleTwo350X390/>
+                                    {
+                                        section.post[0] !== null ?
+                                            <StyleTwo350X390  news = {section.post[0]}/>
+                                        : null
+                                    }
                             </div>
+
+
                             <div className="col-lg-6">
                                 <div className="row">
-                                    <div className="col-md-6">
-                                        {/*<StyleThree160X181/>*/}
-                                    </div>
-                                    <div className="col-md-6">
-                                        {/*<StyleThree160X181/>*/}
-                                    </div>
-                                    <div className="col-md-6">
-                                        {/*<StyleThree160X181/>*/}
-                                    </div>
-                                    <div className="col-md-6">
-                                        {/*<StyleThree160X181/>*/}
-                                    </div>
+                                    {
+                                        section.post.map((news,index)=>(
+                                            index===0?
+                                                null
+                                                :
+                                                <div className="col-md-6">
+                                                    <StyleThree160X181 key={index} news={news}/>
+                                                </div>
+
+
+                                        ))
+                                    }
+
                                 </div>
                             </div>
+
                         </div>
+
+                        {/*<div className="row">*/}
+                        {/*    <div className="col-lg-6">*/}
+                        {/*        <StyleTwo350X390/>*/}
+                        {/*    </div>*/}
+                        {/*    <div className="col-lg-6">*/}
+                        {/*        <div className="row">*/}
+                        {/*            <div className="col-md-6">*/}
+                        {/*                /!*<StyleThree160X181/>*!/*/}
+                        {/*            </div>*/}
+                        {/*            <div className="col-md-6">*/}
+                        {/*                /!*<StyleThree160X181/>*!/*/}
+                        {/*            </div>*/}
+                        {/*            <div className="col-md-6">*/}
+                        {/*                /!*<StyleThree160X181/>*!/*/}
+                        {/*            </div>*/}
+                        {/*            <div className="col-md-6">*/}
+                        {/*                /!*<StyleThree160X181/>*!/*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
             </>

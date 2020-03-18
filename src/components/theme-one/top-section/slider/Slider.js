@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import SlickSlider from "react-slick";
 import default_image from '../../../../assets/images/default_image/1080x1000.png';
+import {Link} from "react-router-dom";
+import moment from "moment";
 
 class Slider extends Component {
     render() {
@@ -41,17 +43,18 @@ class Slider extends Component {
                                         <div className="entry-content absolute">
                                             <div className="category">
                                                 <ul className="global-list">
-                                                    <li><a href="#">Technology</a></li>
+                                                    <li><Link to={"/details/"+news.slug}>{news.category.category_name}</Link></li>
                                                 </ul>
                                             </div>
                                             <h2 className="entry-title">
-                                                <a href="details.html">Airbnb bans 'party houses' even following mass
-                                                    shooting</a>
+                                                <Link to={"/details/"+news.slug}>
+                                                    {news.title}
+                                                </Link>
                                             </h2>
                                             <div className="entry-meta">
                                                 <ul className="global-list">
-                                                    <li>By <a href="#">Mahananda</a></li>
-                                                    <li><a href="#">November 4, 2019</a></li>
+                                                    <li>By <Link to={"/author/"+news.user.id}>{news.user.first_name}</Link></li>
+                                                    <li><a href="#">{moment(news.created_at).format('MMM DD, YYYY')}</a></li>
                                                 </ul>
                                             </div>
                                         </div>

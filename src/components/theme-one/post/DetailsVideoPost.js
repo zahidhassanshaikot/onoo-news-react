@@ -1,7 +1,14 @@
 import React, {Component} from 'react';
+import default_image from "../../../assets/images/default_image/730x400.png";
+import moment from "moment";
+import ReactHtmlParser from 'react-html-parser';
+import Truncate from 'react-truncate';
+import {Link} from "react-router-dom";
 
 class DetailsVideoPost extends Component {
     render() {
+        let news=this.props.news;
+        console.log(news);
         return (
             <>
                 <div className="sg-post">
@@ -9,7 +16,7 @@ class DetailsVideoPost extends Component {
                         <div className="entry-thumbnail">
                             <img
                                 className="img-fluid"
-                                src={ require("../../../assets/images/post/video-gallery.jpg") }
+                                src={ news.image ? news.image.big_image_two : default_image}
                                 alt="post_image"
                             />
                         </div>
@@ -19,19 +26,20 @@ class DetailsVideoPost extends Component {
                         </div>
                     </div>
                     <div className="entry-content p-4">
-                        <h3 className="entry-title">Ran away farst score Through weakness of will, whichis the same as
-                            saying through</h3>
+                        <h3 className="entry-title">
+                            {news.title}
+                        </h3>
                         <div className="entry-meta mb-2">
                             <ul className="global-list">
-                                <li>By <a href="#">Mahananda</a></li>
-                                <li><i className="fa fa-calendar-minus-o" aria-hidden="true"></i><a href="#">November 4,
-                                    2019</a></li>
+                                {/*<li>By <Link to={"/author/"+news.user.id}>{news.user.last_name}</Link></li>*/}
+                                {/*<li><Link href="#">{moment(news.created_at).format('MMM DD, YYYY')}</Link></li>*/}
                             </ul>
                         </div>
-                        <p className="paragraph">There are many variations of passages of Lorem Ipsum available, but the
-                            majority have suffered alteration in some form, by injected humour, or randomised words
-                            which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum,
-                            you need to be sure there isn't anything embarrassing</p>
+                        <p className="paragraph">
+                            <Truncate lines={3} ellipsis={<span>..... </span>}>
+                                {ReactHtmlParser(ReactHtmlParser(news.content))}
+                            </Truncate>
+                        </p>
                     </div>
                 </div>
             </>

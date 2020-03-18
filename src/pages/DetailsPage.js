@@ -45,11 +45,11 @@ class DetailsPage extends Component {
                             <div className="col-md-5 col-lg-4 sg-sticky">
                                 <div className="sg-sidebar theiaStickySidebar">
                                     <SidebarAds/>
-                                    <PopularPostWIdgetTwo/>
-                                    <RecommendedPostWidget/>
+                                    {/*<PopularPostWIdgetTwo/>*/}
+                                    {/*<RecommendedPostWidget/>*/}
                                     <TegWidget/>
                                     <PollWidget/>
-                                    <RecommendedPostWidget/>
+                                    {/*<RecommendedPostWidget/>*/}
                                 </div>
                             </div>
                         </div>

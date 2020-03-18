@@ -49,19 +49,18 @@ class HomePage extends Component {
     render() {
         let theme = this.props.settingContent.theme;
         let {primary_section_style}= {...theme};
-        let {primary_section, dynamic_section} = this.props.homeContent;
-        let {news} ={...primary_section}
+        let {primary_section, dynamic_section, videos, latest_post} = this.props.homeContent;
+        let {news} = {...primary_section}
 
         return (
             <>
                 <HeaderAds/>
                 {
                     primary_section_style === 'style_1' ? <TopSection news={news}/>
-                    : primary_section_style === 'style_2' ? <TopSectionTwo news={news}/>
-                    : primary_section_style === 'style_3' ? <TopSectionThree news={news}/>
+                    // : primary_section_style === 'style_2' ? <TopSectionTwo news={news}/>
+                    // : primary_section_style === 'style_3' ? <TopSectionThree news={news}/>
                     : <></>
                 }
-                {/*<TopSectionTwo/>*/}
                 <div className="sg-main-content mb-4">
                     <div className="container">
                         <div className="row">
@@ -99,27 +98,26 @@ class HomePage extends Component {
                                         )
                                     }
 
-                                    {/*<SectionOne/>*/}
-                                    {/*<SectionTwo/>*/}
-                                    {/*<ContentAds/>*/}
-                                    {/*<SectionThree/>*/}
-                                    {/*<SectionFour/>*/}
+
                                     <ContentAds/>
-                                    {/*<SectionFive/>*/}
-                                    <VideoSection/>
-                                    <SectionSix/>
+                                    <VideoSection
+                                        videos = {videos}
+                                    />
+                                    {/*<SectionSix*/}
+                                    {/*    latest_post = {latest_post}*/}
+                                    {/*/>*/}
 
                                 </div>
                             </div>
                             <div className="col-md-5 col-lg-4 sg-sticky">
                                 <div className="sg-sidebar theiaStickySidebar">
-                                    <PopularPost/>
+                                    {/*<PopularPost/>*/}
                                     <SocialWidget/>
                                     <SidebarAds/>
                                     <NewsletterWidget/>
                                     {/*<RecentPostWidget/>*/}
                                     <SidebarAds/>
-                                    <RecommendedPostWidget/>
+                                    {/*<RecommendedPostWidget/>*/}
                                     <TegWidget/>
                                     <SidebarAds/>
                                     <WeatherWidget/>

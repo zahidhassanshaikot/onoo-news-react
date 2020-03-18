@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react';
 import {Link} from "react-router-dom";
 import moment from "moment";
 import default_image from '../../../assets/images/default_image/240x160.png';
+import Truncate from "react-truncate";
 
 class StyleThree160X181 extends Component {
     render() {
@@ -20,10 +21,17 @@ class StyleThree160X181 extends Component {
                         </div>
                     </div>
                     <div className="entry-content">
-                        <p>{news.title}</p>
+                        <p>
+                            <Truncate
+                                lines={2}
+                                ellipsis={<span>..... </span>}
+                            >
+                                {news.title}
+                            </Truncate>
+                        </p>
                         <div className="entry-meta">
                             <ul className="global-list">
-                                <li>By <Link to="/details/slug">{moment(news.created_at).format('MMM DD, YYYY')}</Link></li>
+                                <li>By <Link to={"/details/"+news.slug}>{moment(news.created_at).format('MMM DD, YYYY')}</Link></li>
                             </ul>
                         </div>
                     </div>

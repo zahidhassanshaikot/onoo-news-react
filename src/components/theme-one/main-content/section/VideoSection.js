@@ -4,6 +4,7 @@ import VideoStyle350X212 from "../../post/VideoStyle350x212";
 
 class VideoSection extends Component {
     render() {
+        let videos = this.props.videos;
         return (
             <>
                 <div className="sg-section">
@@ -11,21 +12,30 @@ class VideoSection extends Component {
                         <div className="section-title">
                             <h1>Video</h1>
                         </div>
-                        <DetailsVideoPost/>
+                        <DetailsVideoPost news={videos[0]}/>
 
                         <div className="row text-center">
-                            <div className="col-lg-6">
-                                <VideoStyle350X212/>
-                            </div>
-                            <div className="col-lg-6">
-                                <VideoStyle350X212/>
-                            </div>
-                            <div className="col-lg-6">
-                                <VideoStyle350X212/>
-                            </div>
-                            <div className="col-lg-6">
-                                <VideoStyle350X212/>
-                            </div>
+                            {
+                                videos.map((news,index)=> (
+                                    <div className="col-lg-6">
+                                        <VideoStyle350X212
+                                            key={index}
+                                            news={news}
+                                        />
+                                    </div>
+                                ))
+                            }
+
+
+                            {/*<div className="col-lg-6">*/}
+                            {/*    <VideoStyle350X212/>*/}
+                            {/*</div>*/}
+                            {/*<div className="col-lg-6">*/}
+                            {/*    <VideoStyle350X212/>*/}
+                            {/*</div>*/}
+                            {/*<div className="col-lg-6">*/}
+                            {/*    <VideoStyle350X212/>*/}
+                            {/*</div>*/}
                         </div>
                     </div>
                 </div>
