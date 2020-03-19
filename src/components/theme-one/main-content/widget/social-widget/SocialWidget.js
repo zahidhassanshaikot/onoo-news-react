@@ -1,56 +1,58 @@
 import React, {Component} from 'react';
+import SocialButtonTwo from "../../../theme-icon/SocialButtonTwo";
 
 class SocialWidget extends Component {
     render() {
+        let widget = this.props.widget;
         return (
             <>
                 <div className="sg-widget widget-social">
-                    <h3 className="widget-title">Stay connected</h3>
+                    <h3 className="widget-title">{widget.title}</h3>
 
                     <div className="sg-socail">
                         <ul className="global-list">
-                            <li className="facebook">
-                                <a href="#">
-                                    <span>
-                                        <i className="fa fa-facebook" aria-hidden="true"></i>
-                                    </span>Facebook
-                                </a>
-                            </li>
-                            <li className="youtube">
-                                <a href="#">
-                                    <span>
-                                        <i className="fa fa-youtube-play" aria-hidden="true"></i>
-                                    </span>Youtube
-                                </a>
-                            </li>
-                            <li className="twitter">
-                                <a href="#">
-                                    <span>
-                                        <i className="fa fa-twitter" aria-hidden="true"></i>
-                                    </span>Twitter
-                                </a>
-                            </li>
-                            <li className="linkedin">
-                                <a href="#">
-                                    <span>
-                                        <i className="fa fa-linkedin" aria-hidden="true"></i>
-                                    </span>Linkedin
-                                </a>
-                            </li>
-                            <li className="pinterest">
-                                <a href="#">
-                                    <span>
-                                        <i className="fa fa-pinterest-square" aria-hidden="true"></i>
-                                    </span>Pinterest
-                                </a>
-                            </li>
-                            <li className="skype">
-                                <a href="#">
-                                    <span>
-                                        <i className="fa fa-skype" aria-hidden="true"></i>
-                                    </span>Skype
-                                </a>
-                            </li>
+                            <SocialButtonTwo
+                                url={widget.follow_us.fb_url}
+                                label="Facebook"
+                                icon_class="fa fa-facebook"
+                                li_class="facebook"
+                            />
+                            <SocialButtonTwo
+                                url={widget.follow_us.youtube_url}
+                                label="Youtube"
+                                icon_class="fa fa-youtube-play"
+                                li_class="youtube"
+                            />
+                            <SocialButtonTwo
+                                url={widget.follow_us.twitter_url}
+                                label="Twitter"
+                                icon_class="fa fa-twitter"
+                                li_class="twitter"
+                            />
+                            <SocialButtonTwo
+                                url={widget.follow_us.linkedin_url}
+                                label="Linkedin"
+                                icon_class="fa fa-linkedin"
+                                li_class="linkedin"
+                            />
+                            <SocialButtonTwo
+                                url={widget.follow_us.pinterest_url}
+                                label="Pinterest"
+                                icon_class="fa fa-pinterest-square"
+                                li_class="pinterest"
+                            />
+                            <SocialButtonTwo
+                                url={widget.follow_us.instagram_url}
+                                label="Instagram"
+                                icon_class="fa fa-instagram"
+                                li_class="instagram"
+                            />
+                            {/*<SocialButtonTwo*/}
+                            {/*    url=""*/}
+                            {/*    label="Skype"*/}
+                            {/*    icon_class="fa fa-skype"*/}
+                            {/*    li_class="skype"*/}
+                            {/*/>*/}
                         </ul>
                     </div>
                 </div>

@@ -21,6 +21,11 @@ class StyleSeven730x190 extends Component {
                                 />
                             </Link>
                         </div>
+                        <div className="category">
+                            <ul className="global-list">
+                                <li><a href="#">{news.category.category_name}</a></li>
+                            </ul>
+                        </div>
                     </div>
                     <div className="entry-content align-self-center">
                         <h3 className="entry-title">
@@ -38,8 +43,8 @@ class StyleSeven730x190 extends Component {
                         </div>
                         <p>
                             <Truncate lines={2} ellipsis={<span>..... </span>}>
-                            {ReactHtmlParser(ReactHtmlParser(news.content))}
-                        </Truncate>
+                                {ReactHtmlParser(ReactHtmlParser(news.content))}
+                            </Truncate>
                         </p>
                     </div>
                 </div>

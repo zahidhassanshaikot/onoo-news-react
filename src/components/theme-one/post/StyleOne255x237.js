@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
-import default_image from '../../../assets/images/default_image/258x215.png';
+import default_image from '../../../assets/images/default_image/240x160.png';
 import Truncate from "react-truncate";
 
 class StyleOne255X237 extends Component {

@@ -3,23 +3,20 @@ import StyleThree160X181 from "../../../post/StyleThree160x181";
 
 class RecentPostWidget extends Component {
     render() {
+        let widget = this.props.widget;
         return (
             <>
                 <div className="sg-widget">
-                    <h3 className="widget-title">Recent Posts</h3>
+                    <h3 className="widget-title">{widget.title}</h3>
                     <div className="row">
-                        <div className="col-md-6">
-                            <StyleThree160X181/>
-                        </div>
-                        <div className="col-md-6">
-                            <StyleThree160X181/>
-                        </div>
-                        <div className="col-md-6">
-                            <StyleThree160X181/>
-                        </div>
-                        <div className="col-md-6">
-                            <StyleThree160X181/>
-                        </div>
+                        {
+                            widget.recent_posts.map((news, index)=>(
+                                <div key={index} className="col-md-6">
+                                    <StyleThree160X181
+                                        news={news}/>
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
             </>

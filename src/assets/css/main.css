@@ -1272,11 +1272,11 @@ a.read-more {
 }
 
 .widget-social ul li.linkedin span {
-    background-color: #349AFF;
+    background-color: #0077B5;
 }
 
 .widget-social ul li.linkedin a {
-    background-color: rgba(52, 154, 255, 0.85);
+    background-color: rgba(0, 119, 181, 0.85);
 }
 
 .widget-social ul li.pinterest span {
@@ -1285,6 +1285,14 @@ a.read-more {
 
 .widget-social ul li.pinterest a {
     background-color: rgba(194, 0, 13, 0.85);
+}
+
+.widget-social ul li.instagram span {
+    background-color: #e4405f;
+}
+
+.widget-social ul li.instagram a {
+    background-color: rgba(228, 64, 95, 0.85);
 }
 
 .widget-social ul li.skype span {

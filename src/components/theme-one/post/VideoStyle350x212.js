@@ -1,19 +1,26 @@
 import React, {Component} from 'react';
+import default_image from '../../../assets/images/default_image/358x215.png';
+import moment from "moment";
+import ReactHtmlParser from 'react-html-parser';
+import Truncate from 'react-truncate';
+import {Link} from "react-router-dom";
+
 
 class VideoStyle350X212 extends Component {
     render() {
+        let news = this.props.news;
         return (
             <>
                 <div className="sg-post post-style-2">
                     <div className="entry-header">
                         <div className="entry-thumbnail">
-                            <a href="details.html">
+                            <Link to={"/details/"+news.slug}>
                                 <img
                                     className="img-fluid"
-                                    src={ require("../../../assets/images/post/mid1.jpg") }
+                                    src={ news.image ? news.image.medium_image : default_image}
                                     alt="post_image"
                                 />
-                                </a>
+                                </Link>
                         </div>
                     </div>
                     <div className="entry-content">
@@ -25,10 +32,18 @@ class VideoStyle350X212 extends Component {
                                 aria-hidden="true"></i>
                             </a>
                         </div>
-                        <h3 className="entry-title"><a href="#">There are
-                            big long time ago</a></h3>
-                        <p>There are many variations of passages of Lorem
-                            Ipsum available</p>
+                        <h3 className="entry-title">
+                            <Link to={"/details/"+news.slug}>
+                                <Truncate lines={1} ellipsis={<span>..... </span>}>
+                                    {news.title}
+                                </Truncate>
+                            </Link>
+                        </h3>
+                        <p>
+                            <Truncate lines={1} ellipsis={<span>..... </span>}>
+                                {ReactHtmlParser(ReactHtmlParser(news.content))}
+                            </Truncate>
+                        </p>
                     </div>
                 </div>
             </>

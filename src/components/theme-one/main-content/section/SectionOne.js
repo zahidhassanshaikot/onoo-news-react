@@ -30,8 +30,8 @@ class SectionOne extends Component {
                                             index===0?
                                                 null
                                                 :
-                                                <div className="col-md-6">
-                                                    <StyleThree160X181 key={index} news={news}/>
+                                                <div key={index} className="col-md-6">
+                                                    <StyleThree160X181 news={news}/>
                                                 </div>
 
 

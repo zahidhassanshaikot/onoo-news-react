@@ -34,6 +34,8 @@ import FooterTwo from "../components/theme-one/footer/FooterTwo";
 import FooterThree from "../components/theme-one/footer/FooterThree";
 import HeaderThree from "../components/theme-one/header/HeaderThree";
 import TopSectionThree from "../components/theme-one/top-section/TopSectionThree";
+import CategoriesWidget from "../components/theme-one/main-content/widget/categories-widget/CategoriesWidget";
+import PopularPostWIdgetTwo from "../components/theme-one/main-content/widget/popular-post-widget/PopularPostWIdgetTwo";
 
 class HomePage extends Component {
 
@@ -47,10 +49,11 @@ class HomePage extends Component {
     }
 
     render() {
-        let theme = this.props.settingContent.theme;
+        let {theme, widgets} = this.props.settingContent;
         let {primary_section_style}= {...theme};
         let {primary_section, dynamic_section, videos, latest_post} = this.props.homeContent;
         let {news} = {...primary_section}
+        // console.log(widgets.length);
 
         return (
             <>
@@ -103,24 +106,77 @@ class HomePage extends Component {
                                     <VideoSection
                                         videos = {videos}
                                     />
-                                    {/*<SectionSix*/}
-                                    {/*    latest_post = {latest_post}*/}
-                                    {/*/>*/}
+
+                                    {
+                                        latest_post.length > 0 ?
+                                        <SectionSix
+                                            latest_post = {latest_post}
+                                        />
+                                        :null
+                                    }
 
                                 </div>
                             </div>
                             <div className="col-md-5 col-lg-4 sg-sticky">
                                 <div className="sg-sidebar theiaStickySidebar">
+
+                                    {
+                                        widgets.length > 0 ?
+                                            widgets.map((widget,index)=>(
+                                                widget.short_code === 'popular_posts' ?
+                                                    <PopularPostWIdgetTwo
+                                                        key={index}
+                                                        widget={widget}
+                                                    />
+                                                :widget.short_code === 'follow_us' ?
+                                                    <SocialWidget
+                                                        key={index}
+                                                        widget={widget}
+                                                    />
+                                                :widget.short_code === 'newsletter' ?
+                                                    <NewsletterWidget
+                                                        key={index}
+                                                        widget={widget}
+                                                    />
+                                                :widget.short_code === 'recent_posts' ?
+                                                    <RecentPostWidget
+                                                        key={index}
+                                                        widget={widget}
+                                                    />
+                                                :widget.short_code === 'categories' ?
+                                                    <CategoriesWidget
+                                                        key={index}
+                                                        widget={widget}
+                                                    />
+                                                :widget.short_code === 'tags' ?
+                                                    <TegWidget
+                                                        key={index}
+                                                        widget={widget}
+                                                    />
+                                                :widget.short_code === 'voting_poll' ?
+                                                    <PollWidget
+                                                        key={index}
+                                                        widget={widget}
+                                                    />
+                                                // :widget.short_code === 'recommended_posts' ?
+                                                //     <RecommendedPostWidget/>
+                                                // :widget.short_code === 'weather' ?
+                                                //     <WeatherWidget/>
+                                                :null
+                                            ))
+                                        :null
+                                    }
+
                                     {/*<PopularPost/>*/}
-                                    <SocialWidget/>
-                                    <SidebarAds/>
-                                    <NewsletterWidget/>
+                                    {/*<SocialWidget/>*/}
+                                    {/*<SidebarAds/>*/}
+                                    {/*<NewsletterWidget/>*/}
                                     {/*<RecentPostWidget/>*/}
-                                    <SidebarAds/>
+                                    {/*<SidebarAds/>*/}
                                     {/*<RecommendedPostWidget/>*/}
-                                    <TegWidget/>
-                                    <SidebarAds/>
-                                    <WeatherWidget/>
+                                    {/*<TegWidget/>*/}
+                                    {/*<SidebarAds/>*/}
+                                    {/*<WeatherWidget/>*/}
                                 </div>
                             </div>
                         </div>

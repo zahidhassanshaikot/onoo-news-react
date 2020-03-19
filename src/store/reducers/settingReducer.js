@@ -11,7 +11,7 @@ const init ={
     ads: [{}],
     theme: [{}],
     categories: [{}],
-    widgets: [{}]
+    widgets: []
 }
 
 const settingReducer =(state=init,action) =>{

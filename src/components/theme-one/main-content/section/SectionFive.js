@@ -22,8 +22,8 @@ class SectionFive extends Component {
                                     (index === 0) ?
                                     null
                                     :
-                                    <div className="col-lg-6">
-                                        <StyleFour350X82 key={index} news={news}/>
+                                    <div key={index} className="col-lg-6">
+                                        <StyleFour350X82 news={news}/>
                                     </div>
                                 ))
                             }

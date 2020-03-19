@@ -17,9 +17,8 @@ class VideoSection extends Component {
                         <div className="row text-center">
                             {
                                 videos.map((news,index)=> (
-                                    <div className="col-lg-6">
+                                    <div key={index} className="col-lg-6">
                                         <VideoStyle350X212
-                                            key={index}
                                             news={news}
                                         />
                                     </div>

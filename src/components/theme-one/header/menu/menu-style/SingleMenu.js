@@ -7,7 +7,7 @@ class SingleMenu extends Component {
             <>
                 {
                     this.props.url ?
-                        <li key={this.props.uniqueKey}>
+
                             <a
                                 target={(this.props.new_teb === 1) ? "_blank" : ""}
                                 href={this.props.url}
@@ -16,9 +16,8 @@ class SingleMenu extends Component {
                             >
                                 {this.props.label}
                             </a>
-                        </li>
                 :
-                        <li key={this.props.uniqueKey}>
+
                             <NavLink
                                 target={(this.props.new_teb === 1) ? "_blank" : ""}
                                 to={'/'+this.props.slug}
@@ -27,7 +26,7 @@ class SingleMenu extends Component {
                             >
                                 {this.props.label}
                             </NavLink>
-                        </li>
+
                 }
             </>
         );

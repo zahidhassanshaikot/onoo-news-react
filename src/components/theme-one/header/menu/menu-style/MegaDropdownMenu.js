@@ -5,7 +5,6 @@ class MegaDropdownMenu extends Component {
     render() {
         return (
             <>
-                <li className="sg-dropdown mega-dropdown" key={this.props.uniqueKey}>
                     <a href="#">{this.props.label}<span>
                         <i className="fa fa-angle-down" aria-hidden="true"></i></span>
                     </a>
@@ -52,7 +51,6 @@ class MegaDropdownMenu extends Component {
                             </div>
                         </div>
                     </div>
-                </li>
             </>
         );
     }

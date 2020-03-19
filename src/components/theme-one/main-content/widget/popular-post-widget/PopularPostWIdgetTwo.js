@@ -3,10 +3,11 @@ import StyleFour350X82 from "../../../post/StyleFour350x82";
 
 class PopularPostWIdgetTwo extends Component {
     render() {
+        let widget = this.props.widget;
         return (
             <>
                 <div className="sg-widget">
-                    <h3 className="widget-title">popular posts</h3>
+                    <h3 className="widget-title">{widget.title}</h3>
                     <ul className="nav nav-tabs widget-tabs nav-pills nav-fill" id="myTab"
                         role="tablist">
                         <li className="nav-item">
@@ -28,52 +29,46 @@ class PopularPostWIdgetTwo extends Component {
                         <div className="tab-pane fade show active" id="daily" role="tabpanel"
                              aria-labelledby="daily-tab">
                             <ul className="global-list">
-                                <li>
-                                    <StyleFour350X82/>
-                                </li>
-                                <li>
-                                    <StyleFour350X82/>
-                                </li>
-                                <li>
-                                    <StyleFour350X82/>
-                                </li>
-                                <li>
-                                    <StyleFour350X82/>
-                                </li>
+                                {
+                                    widget.popular_posts.daily.map((news, index)=>(
+                                        <li key={index}>
+                                            <StyleFour350X82
+                                                news={news}
+                                            />
+                                        </li>
+                                    ))
+
+                                }
                             </ul>
                         </div>
                         <div className="tab-pane fade" id="weekly" role="tabpanel"
                              aria-labelledby="weekly-tab">
                             <ul className="global-list">
-                                <li>
-                                    <StyleFour350X82/>
-                                </li>
-                                <li>
-                                    <StyleFour350X82/>
-                                </li>
-                                <li>
-                                    <StyleFour350X82/>
-                                </li>
-                                <li>
-                                    <StyleFour350X82/>
-                                </li>
+                                {
+                                    widget.popular_posts.weekly.map((news, index)=>(
+                                        <li key={index}>
+                                            <StyleFour350X82
+                                                news={news}
+                                            />
+                                        </li>
+                                    ))
+
+                                }
                             </ul>
                         </div>
                         <div className="tab-pane fade" id="monthly" role="tabpanel"
                              aria-labelledby="monthly-tab">
                             <ul className="global-list">
-                                <li>
-                                    <StyleFour350X82/>
-                                </li>
-                                <li>
-                                    <StyleFour350X82/>
-                                </li>
-                                <li>
-                                    <StyleFour350X82/>
-                                </li>
-                                <li>
-                                    <StyleFour350X82/>
-                                </li>
+                                {
+                                    widget.popular_posts.monthly.map((news, index)=>(
+                                        <li key={index}>
+                                            <StyleFour350X82
+                                                news={news}
+                                            />
+                                        </li>
+                                    ))
+
+                                }
                             </ul>
                         </div>
                     </div>

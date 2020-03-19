@@ -57,50 +57,59 @@ class Menu extends Component {
                                                 item.source==='page'?
                                                     item.children.length === 0 ?
                                                         (
-                                                            <SingleMenu
-                                                                new_teb={item.new_teb}
-                                                                slug={item.page.slug}
-                                                                label={item.label}
-                                                                uniqueKey={index}
-                                                            />
+                                                            <li key={index}>
+                                                                <SingleMenu
+                                                                    new_teb={item.new_teb}
+                                                                    slug={item.page.slug}
+                                                                    label={item.label}
+                                                                    uniqueKey={index}
+                                                                />
+                                                            </li>
                                                         )
                                                         :
                                                         (
-                                                            <DropdownMenu
-                                                                label={item.label}
-                                                                children={item.children}
-                                                                uniqueKey={index}
-                                                            />
-                                                        )
-                                                :item.source==='custom'?
-                                                    (
-                                                        item.children.length === 0 ?
-                                                            (
-                                                                <SingleMenu
-                                                                    new_teb={item.new_teb}
-                                                                    label={item.label}
-                                                                    url={item.url}
-                                                                    uniqueKey={index}
-                                                                />
-                                                            )
-                                                            :
-                                                            (
+                                                            <li className="nav-item sg-dropdown active" key={index}>
                                                                 <DropdownMenu
                                                                     label={item.label}
                                                                     children={item.children}
                                                                     uniqueKey={index}
                                                                 />
+                                                            </li>
+                                                        )
+                                                :item.source==='custom'?
+                                                    (
+                                                        item.children.length === 0 ?
+                                                            (
+                                                                <li key={index}>
+                                                                    <SingleMenu
+                                                                        new_teb={item.new_teb}
+                                                                        label={item.label}
+                                                                        url={item.url}
+                                                                        uniqueKey={index}
+                                                                    />
+                                                                </li>
+                                                            )
+                                                            :
+                                                            (
+                                                                <li className="nav-item sg-dropdown active" key={index}>
+                                                                    <DropdownMenu
+                                                                        label={item.label}
+                                                                        children={item.children}
+                                                                        uniqueKey={index}
+                                                                    />
+                                                                </li>
                                                             )
                                                     )
                                                 :item.source==='category'?
                                                     (
-                                                        <MegaDropdownMenu
-                                                            label={item.label}
-                                                            category={item.category}
-                                                            uniqueKey={index}
-                                                        />
+                                                        <li className="sg-dropdown mega-dropdown" key={index}>
+                                                            <MegaDropdownMenu
+                                                                label={item.label}
+                                                                category={item.category}
+                                                            />
+                                                        </li>
                                                     )
-                                                :<></>
+                                                :null
                                             ))
                                         }
                                         {/*<li className="nav-item sg-dropdown active">*/}

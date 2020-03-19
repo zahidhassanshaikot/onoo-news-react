@@ -8,7 +8,6 @@ import {Link} from "react-router-dom";
 class DetailsVideoPost extends Component {
     render() {
         let news=this.props.news;
-        console.log(news);
         return (
             <>
                 <div className="sg-post">
@@ -31,8 +30,8 @@ class DetailsVideoPost extends Component {
                         </h3>
                         <div className="entry-meta mb-2">
                             <ul className="global-list">
-                                {/*<li>By <Link to={"/author/"+news.user.id}>{news.user.last_name}</Link></li>*/}
-                                {/*<li><Link href="#">{moment(news.created_at).format('MMM DD, YYYY')}</Link></li>*/}
+                                <li>By <Link to={"/author/"+news.user.id}>{news.user.last_name}</Link></li>
+                                <li><Link href="#">{moment(news.created_at).format('MMM DD, YYYY')}</Link></li>
                             </ul>
                         </div>
                         <p className="paragraph">

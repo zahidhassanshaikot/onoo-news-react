@@ -9,8 +9,8 @@ const init={
         }
         },
     dynamic_section:[{post:[]}],
-    videos:[{}],
-    latest_post:[{image:{},user:{},video:{},category:{}}],
+    videos:[{image:{},user:{},video:{},category:{}}],
+    latest_post:[],
 }
 
 const homeReducer =(state= init,action) =>{

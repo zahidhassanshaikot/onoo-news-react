@@ -6,7 +6,6 @@ class DropdownMenu extends Component {
     render() {
         return (
             <>
-                <li className="nav-item sg-dropdown active" key={this.props.uniqueKey}>
                     <NavLink exact activeStyle={{color: '#00a8ee'}} to="/">{this.props.label}
                         <span>
                             <i className="fa fa-angle-down" aria-hidden="true"></i>
@@ -34,7 +33,6 @@ class DropdownMenu extends Component {
                             ))
                         }
                     </ul>
-                </li>
             </>
         );
     }
