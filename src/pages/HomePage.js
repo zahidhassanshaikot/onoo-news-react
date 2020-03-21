@@ -103,9 +103,14 @@ class HomePage extends Component {
 
 
                                     <ContentAds/>
-                                    <VideoSection
-                                        videos = {videos}
-                                    />
+                                    {
+                                        videos.length > 0 ?
+                                            <VideoSection
+                                                videos = {videos}
+                                            />
+                                        :null
+                                    }
+
 
                                     {
                                         latest_post.length > 0 ?
@@ -158,8 +163,11 @@ class HomePage extends Component {
                                                         key={index}
                                                         widget={widget}
                                                     />
-                                                // :widget.short_code === 'recommended_posts' ?
-                                                //     <RecommendedPostWidget/>
+                                                :widget.short_code === 'recommended_posts' ?
+                                                    <RecommendedPostWidget
+                                                        key={index}
+                                                        widget={widget}
+                                                    />
                                                 // :widget.short_code === 'weather' ?
                                                 //     <WeatherWidget/>
                                                 :null

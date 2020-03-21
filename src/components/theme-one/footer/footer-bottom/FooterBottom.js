@@ -6,7 +6,7 @@ class FooterBottom extends Component {
             <>
                 <div className="footer-bottom">
                     <div className="container text-center">
-                        <span>Copyright &copy; {(new Date().getFullYear())} Varient - All Rights Reserved.</span>
+                        <span>Copyright &copy; {(new Date().getFullYear())} {this.props.application_name} - All Rights Reserved.</span>
                     </div>
                 </div>
             </>

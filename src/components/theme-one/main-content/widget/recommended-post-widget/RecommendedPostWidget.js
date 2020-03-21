@@ -4,26 +4,31 @@ import StyleFour350X82 from "../../../post/StyleFour350x82";
 
 class RecommendedPostWidget extends Component {
     render() {
+        let widget = this.props.widget;
         return (
             <>
                 <div className="sg-widget">
-                    <h3 className="widget-title">Recommended posts</h3>
+                    <h3 className="widget-title">{widget.title}</h3>
+                    {
+                        widget.recommended_posts[0] !== null ?
+                            <StyleSix350X250
+                                news={widget.recommended_posts[0]}
+                            />
+                        :null
+                    }
 
-                    <StyleSix350X250/>
 
                     <ul className="global-list">
-                        <li>
-                            <StyleFour350X82/>
-                        </li>
-                        <li>
-                            <StyleFour350X82/>
-                        </li>
-                        <li>
-                            <StyleFour350X82/>
-                        </li>
-                        <li>
-                            <StyleFour350X82/>
-                        </li>
+                        {
+                            widget.recommended_posts.map((news, index)=>(
+                                index===0?
+                                    null
+                                :
+                                <li key={index}>
+                                    <StyleFour350X82 news={news}/>
+                                </li>
+                            ))
+                        }
                     </ul>
                 </div>
             </>

@@ -31,10 +31,10 @@ componentDidMount() {
                 { this.props.children }
 
                 {
-                    // footer_style === 'footer_1' ? <Footer history={this.props.history}/>
-                    //     : footer_style === 'footer_2' ? <FooterTwo history={this.props.history}/>
-                    //     : footer_style === 'footer_3' ? <FooterThree history={this.props.history}/>
-                    //     : <Footer history={this.props.history}/>
+                    footer_style === 'footer_1' ? <Footer history={this.props.history}/>
+                        : footer_style === 'footer_2' ? <FooterTwo history={this.props.history}/>
+                        : footer_style === 'footer_3' ? <FooterThree history={this.props.history}/>
+                        : <Footer history={this.props.history}/>
                 }
             </>
         );

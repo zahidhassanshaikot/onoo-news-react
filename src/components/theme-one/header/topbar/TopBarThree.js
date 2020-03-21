@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import logo from '../../../../assets/images/logo.png';
 import HeaderAdTwo from "../../ads/HeaderAdTwo";
 import moment from "moment";
+import SocialButton from "../../theme-icon/SocialButton";
+import {connect} from "react-redux";
+import {logout} from "../../../../store/actions/authAction";
 
 class TopBarThree extends Component {
     constructor() {
@@ -22,6 +25,7 @@ class TopBarThree extends Component {
     }
 
     render() {
+        let {languages, default_language, social_media, branding} = this.props.settingContent;
         return (
             <>
                 <div className="sg-topbar topbar-style-1">
@@ -67,24 +71,65 @@ class TopBarThree extends Component {
                                         {/*<span><strong>11</strong>Jan, saturday</span>*/}
                                     </div>
                                 </div>
-                                <div className="sg-user">
-                                        <span>
-                                            <i className="fa fa-user-circle mr-2" aria-hidden="true"></i>
-                                            <Link to="/sign-in">Login</Link> / <Link to="/sign-up"> SignUp</Link>
-                                        </span>
-                                </div>
+                                {
+                                    this.props.auth.isAuthenticated ?
+                                        <React.Fragment>
+                                            <div className="sg-user">
+                                                <span><i className="fa fa-user-circle mr-2" aria-hidden="true"></i>
+                                                    <Link onClick={()=>this.props.logout(this.props.history)}>Logout</Link>
+                                                </span>
+                                            </div>
+                                        </React.Fragment>
+                                        :
+                                        <React.Fragment>
+                                            <div className="sg-user">
+                                                <span><i className="fa fa-user-circle mr-2" aria-hidden="true"></i>
+
+                                                    <Link to="/sign-in">Login</Link> /
+                                                    <Link to="/sign-up"> SignUp</Link>
+                                                </span>
+                                            </div>
+                                        </React.Fragment>
+                                }
                             </div>
                             <div className="right-content d-flex align-self-center">
                                 <div className="sg-social">
                                     <ul className="global-list">
-                                        <li><a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li><a href="#"><i className="fa fa-twitter" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li><a href="#"><i className="fa fa-google-plus" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li><a href="#"><i className="fa fa-linkedin" aria-hidden="true"></i></a>
-                                        </li>
+                                        <SocialButton
+                                            li_class=""
+                                            i_class="fa fa-facebook"
+                                            url={social_media.fb_url}
+                                        />
+                                        <SocialButton
+                                            li_class=""
+                                            i_class="fa fa-twitter"
+                                            url={social_media.twitter_url}
+                                        />
+                                        <SocialButton
+                                            li_class=""
+                                            i_class="fa fa-google-plus"
+                                            url={social_media.google_url}
+                                        />
+                                        <SocialButton
+                                            li_class=""
+                                            i_class="fa fa-linkedin"
+                                            url={social_media.linkedin_url}
+                                        />
+                                        <SocialButton
+                                            li_class=""
+                                            i_class="fa fa-pinterest"
+                                            url={social_media.pinterest_url}
+                                        />
+                                        <SocialButton
+                                            li_class=""
+                                            i_class="fa fa-youtube-play"
+                                            url={social_media.youtube_url}
+                                        />
+                                        <SocialButton
+                                            li_class=""
+                                            i_class="fa fa-instagram"
+                                            url={social_media.instagram_url}
+                                        />
                                     </ul>
                                 </div>
                             </div>
@@ -94,9 +139,9 @@ class TopBarThree extends Component {
                 <div className="header-bottom">
                     <div className="container">
                         <div className="d-flex justify-content-between">
-                            <Link className="navbar-brand align-self-center" href="index.html">
+                            <Link className="navbar-brand align-self-center" to="/">
                                 <img
-                                    src={logo}
+                                    src={branding.logo}
                                     alt="Logo"
                                     className="img-fluid"
                                 />
@@ -111,4 +156,9 @@ class TopBarThree extends Component {
     }
 }
 
-export default TopBarThree;
+const mapStateToProps = state =>({
+    auth:state.auth,
+    settingContent:state.settingContent
+})
+
+export default withRouter(connect(mapStateToProps,{logout})(TopBarThree));

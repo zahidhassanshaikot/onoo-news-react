@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
+import moment from "moment";
+import {Link} from "react-router-dom";
+import default_image from '../../../assets/images/default_image/460x350.png';
 
 class StyleSix350X250 extends Component {
     render() {
+        let news=this.props.news;
         return (
             <>
                 <div className="sg-post featured-post">
@@ -9,7 +13,7 @@ class StyleSix350X250 extends Component {
                         <div className="entry-thumbnail">
                             <a href="details.html">
                                 <img className="img-fluid"
-                                     src={ require("../../../assets/images/post/25.jpg") }
+                                     src={ news.image ? news.image.medium_image_three : default_image}
                                      alt="post_image"
                                 />
                             </a>
@@ -18,17 +22,18 @@ class StyleSix350X250 extends Component {
                     <div className="entry-content absolute">
                         <div className="category">
                             <ul className="global-list">
-                                <li><a href="#">Technology</a></li>
+                                <li><a href="#">{news.category.category_name}</a></li>
                             </ul>
                         </div>
                         <h2 className="entry-title">
-                            <a href="details.html">Football manager's rage-fuelled reaction
-                                becomes a glorious meme</a>
+                            <Link to={"/details/"+news.slug}>
+                                {news.title}
+                            </Link>
                         </h2>
                         <div className="entry-meta">
                             <ul className="global-list">
-                                <li>By <a href="#">Mahananda</a></li>
-                                <li><a href="#">November 4, 2019</a></li>
+                                <li>By <a href="#">{news.user.first_name}</a></li>
+                                <li><a href="#">{moment(news.created_at).format('MMM DD, YYYY')}</a></li>
                             </ul>
                         </div>
                     </div>

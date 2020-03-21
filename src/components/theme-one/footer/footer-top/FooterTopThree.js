@@ -16,39 +16,58 @@ class FooterTopThree extends Component {
                                             industry. Lorem Ipsum has been the industry's standard dummy text since
                                             has five...</p>
                                         <ul className="global-list">
-                                            <li><i className="fa fa-home mr-2" aria-hidden="true"></i> 15 Cliff St,
-                                                New York NY 10038, USA
+                                            <li><i className="fa fa-home mr-2" aria-hidden="true"></i>
+                                                {this.props.branding.address}
                                             </li>
                                             <li><i className="fa fa-volume-control-phone mr-2"
-                                                   aria-hidden="true"></i> 91 234 567 8765
+                                                   aria-hidden="true"></i> {this.props.branding.phone}
                                             </li>
                                             <li><i className="fa fa-envelope-o mr-2" aria-hidden="true"></i> <a
-                                                href="#">info@hmail.com</a></li>
+                                                href="#">{this.props.branding.email}</a></li>
                                         </ul>
                                     </div>
                                 </div>
-                                <div className="col-lg-4">
-                                    <div className="footer-widget">
-                                        <h3>EDITOR PICKS</h3>
-                                        <StyleFour350X82/>
-                                        <StyleFour350X82/>
-                                        <StyleFour350X82/>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4">
-                                    <div className="footer-widget categories-widget">
-                                        <h3>POPULAR CATEGORIES</h3>
-                                        <ul className="global-list">
-                                            <li><a href="#">Business <span>(145)</span></a></li>
-                                            <li><a href="#">Design <span>(20)</span></a></li>
-                                            <li><a href="#">Fashion <span>(15)</span></a></li>
-                                            <li><a href="#">Food & Drinks <span>(12)</span></a></li>
-                                            <li><a href="#">Head Phone <span>(56)</span></a></li>
-                                            <li><a href="#">Interior <span>(652)</span></a></li>
-                                            <li><a href="#">Laptop <span>(05)</span></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                {
+                                    this.props.widgets.map((widget, index)=>(
+                                        widget.short_code === 'popular_posts' ?
+                                            <div className="col-lg-4" key={index}>
+                                                <div className="footer-widget">
+                                                    <h3>{widget.title}</h3>
+                                                    {
+                                                        widget.popular_posts.daily.map((news, index) => (
+                                                            <StyleFour350X82
+                                                                key={index}
+                                                                news={news}
+                                                            />
+                                                        ))
+                                                    }
+                                                </div>
+                                            </div>
+
+                                            :widget.short_code === 'categories' ?
+                                                <div className="col-lg-4" key={index}>
+                                                    <div className="footer-widget categories-widget">
+                                                        <h3>{widget.title}</h3>
+                                                        <ul className="global-list">
+                                                            {
+                                                                widget.categories.map((category, index)=>(
+                                                                    <li key={index}>
+                                                                        <a href="#">
+                                                                            {category.category_name}
+                                                                            <span>
+                                                                                 ({category.post_count})
+                                                                             </span>
+                                                                        </a>
+                                                                    </li>
+                                                                ))
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                :null
+                                    ))
+                                }
+
                             </div>
                         </div>
                     </div>

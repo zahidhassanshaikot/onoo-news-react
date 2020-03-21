@@ -9,36 +9,60 @@ class FooterTop extends Component {
                     <div className="container">
                         <div className="footer-content">
                             <div className="row">
-                                <div className="col-lg-4">
-                                    <div className="footer-widget">
-                                        <h3>Popular posts</h3>
-                                        <StyleFour350X82/>
-                                        <StyleFour350X82/>
-                                        <StyleFour350X82/>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4">
-                                    <div className="footer-widget">
-                                        <h3>EDITOR PICKS</h3>
-                                        <StyleFour350X82/>
-                                        <StyleFour350X82/>
-                                        <StyleFour350X82/>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4">
-                                    <div className="footer-widget categories-widget">
-                                        <h3>Categories</h3>
-                                        <ul className="global-list">
-                                            <li><a href="#">Business <span>(145)</span></a></li>
-                                            <li><a href="#">Design <span>(20)</span></a></li>
-                                            <li><a href="#">Fashion <span>(15)</span></a></li>
-                                            <li><a href="#">Food & Drinks <span>(12)</span></a></li>
-                                            <li><a href="#">Head Phone <span>(56)</span></a></li>
-                                            <li><a href="#">Interior <span>(652)</span></a></li>
-                                            <li><a href="#">Laptop <span>(05)</span></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                {
+                                    this.props.widgets.map((widget, index)=>(
+                                         widget.short_code === 'popular_posts' ?
+                                             <div className="col-lg-4" key={index}>
+                                                 <div className="footer-widget">
+                                                     <h3>{widget.title}</h3>
+                                                     {
+                                                         widget.popular_posts.daily.map((news, index) => (
+                                                             <StyleFour350X82
+                                                                 key={index}
+                                                                 news={news}
+                                                             />
+                                                         ))
+                                                     }
+                                                 </div>
+                                             </div>
+                                         :widget.short_code === 'recent_posts' ?
+                                             <div className="col-lg-4" key={index}>
+                                                 <div className="footer-widget">
+                                                     <h3>{widget.title}</h3>
+                                                     {
+                                                         widget.recent_posts.map((news, index)=>(
+                                                             <StyleFour350X82
+                                                                 key={index}
+                                                                 news={news}
+                                                             />
+                                                         ))
+                                                     }
+                                                 </div>
+                                             </div>
+                                         :widget.short_code === 'categories' ?
+                                                 <div className="col-lg-4" key={index}>
+                                                     <div className="footer-widget categories-widget">
+                                                         <h3>{widget.title}</h3>
+                                                         <ul className="global-list">
+                                                             {
+                                                                 widget.categories.map((category, index)=>(
+                                                                     <li key={index}>
+                                                                         <a href="#">
+                                                                             {category.category_name}
+                                                                             <span>
+                                                                                 ({category.post_count})
+                                                                             </span>
+                                                                         </a>
+                                                                     </li>
+                                                                 ))
+                                                             }
+                                                         </ul>
+                                                     </div>
+                                                 </div>
+                                          :null
+                                    ))
+                                }
+
                             </div>
                         </div>
                     </div>

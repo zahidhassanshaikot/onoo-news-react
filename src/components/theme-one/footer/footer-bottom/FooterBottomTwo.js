@@ -1,37 +1,65 @@
 import React, {Component} from 'react';
 import logo from '../../../../assets/images/logo.png'
+import SocialButton from "../../theme-icon/SocialButton";
 
 class FooterBottomTwo extends Component {
     render() {
+        let social_media = this.props.social_media;
+        let branding = this.props.branding;
         return (
             <>
                 <div className="footer-bottom">
                     <div className="container text-center">
                         <div className="logo">
                             <img
-                                src={logo}
+                                src={branding.logo}
                                 // src="images/footer-logo.png"
-                                alt="Logo"
+                                alt="siteLogo"
                                 className="img-fluid"
                             />
                         </div>
                         <div className="d-flex justify-content-center">
                             <div className="sg-socail">
                                 <ul className="global-list d-flex">
-                                    <li className="facebook"><a href="#"><i className="fa fa-facebook"
-                                                                            aria-hidden="true"></i></a></li>
-                                    <li className="youtube"><a href="#"><i className="fa fa-youtube-play"
-                                                                           aria-hidden="true"></i></a></li>
-                                    <li className="twitter"><a href="#"><i className="fa fa-twitter"
-                                                                           aria-hidden="true"></i></a></li>
-                                    <li className="linkedin"><a href="#"><i className="fa fa-linkedin"
-                                                                            aria-hidden="true"></i></a></li>
-                                    <li className="pinterest"><a href="#"><i className="fa fa-pinterest-square"
-                                                                             aria-hidden="true"></i></a></li>
+                                    <SocialButton
+                                        li_class=""
+                                        i_class="fa fa-facebook"
+                                        url={social_media.fb_url}
+                                    />
+                                    <SocialButton
+                                        li_class=""
+                                        i_class="fa fa-twitter"
+                                        url={social_media.twitter_url}
+                                    />
+                                    <SocialButton
+                                        li_class=""
+                                        i_class="fa fa-google-plus"
+                                        url={social_media.google_url}
+                                    />
+                                    <SocialButton
+                                        li_class=""
+                                        i_class="fa fa-linkedin"
+                                        url={social_media.linkedin_url}
+                                    />
+                                    <SocialButton
+                                        li_class=""
+                                        i_class="fa fa-pinterest"
+                                        url={social_media.pinterest_url}
+                                    />
+                                    <SocialButton
+                                        li_class=""
+                                        i_class="fa fa-youtube-play"
+                                        url={social_media.youtube_url}
+                                    />
+                                    <SocialButton
+                                        li_class=""
+                                        i_class="fa fa-instagram"
+                                        url={social_media.instagram_url}
+                                    />
                                 </ul>
                             </div>
                         </div>
-                        <span>Copyright &copy; 2019 Varient - All Rights Reserved.</span>
+                        <span>Copyright &copy; 2019 {branding.application_name} - All Rights Reserved.</span>
                     </div>
                 </div>
             </>
