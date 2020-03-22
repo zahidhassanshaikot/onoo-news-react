@@ -91,6 +91,7 @@ class TopBarThree extends Component {
                                             </div>
                                         </React.Fragment>
                                 }
+                                
                             </div>
                             <div className="right-content d-flex align-self-center">
                                 <div className="sg-social">

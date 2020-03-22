@@ -22,9 +22,11 @@ class TopSection extends Component {
 
                                     {
                                         featured_news.map((news,index)=>(
-                                            <div key={index} className="col-md-6">
-                                                <StyleOne255X237 news={news}/>
-                                            </div>
+                                            index <4?
+                                                <div key={index} className="col-md-6">
+                                                    <StyleOne255X237 news={news}/>
+                                                </div>
+                                            :null
                                         ))
                                     }
                                 </div>

@@ -1,27 +1,37 @@
 import React, {Component} from 'react';
+import default_image from "../../../assets/images/default_image/240x160.png";
+import Truncate from "react-truncate";
+import {Link} from "react-router-dom";
 
 class StyleEleven207X202 extends Component {
     render() {
+        let news = this.props.news;
         return (
             <>
                 <div className="sg-post">
                     <div className="entry-header">
                         <div className="entry-thumbnail">
-                            <a href="details.html">
+                            <Link to={"/details/"+news.slug}>
                                 <img
                                     className="img-fluid"
-                                    src={ require("../../../assets/images/post/4.jpg") }
+                                    src={ news.image ? news.image.small_image : default_image}
                                     alt="post_image"
-                                /></a>
+                                />
+                            </Link>
                         </div>
                         <div className="category">
                             <ul className="global-list">
-                                <li><a href="#">Tech</a></li>
+                                <li><a href="#">{news.category.category_name}</a></li>
                             </ul>
                         </div>
                     </div>
                     <div className="entry-content">
-                        <p>Adios, Alexa? How Google could change your FitBit.</p>
+
+                        <p>
+                            <Truncate lines={2} ellipsis={<span>..... </span>}>
+                                {news.title}
+                            </Truncate>
+                            </p>
                     </div>
                 </div>
             </>

@@ -1,5 +1,9 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import SlickSlider from "react-slick";
+import default_image from "../../../../assets/images/default_image/1080x1000.png";
+import default_image_three from "../../../../assets/images/default_image/460x350.png";
+import {Link} from "react-router-dom";
+import moment from "moment";
 
 class SliderTwo extends Component {
 
@@ -66,192 +70,78 @@ class SliderTwo extends Component {
                 }
             ]
         };
+        let slider_news = this.props.slider_news;
         return (
             <>
-                <SlickSlider {...settingsHomeSlider}
-                    asNavFor={this.state.nav2}
-                    ref={slider => (this.slider1 = slider)}
-                    className="home-slider"
-                >
-                    <div className="sg-post featured-post">
-                        <div className="entry-header">
-                            <div className="entry-thumbnail">
-                                <a href="details.html">
-                                    <img
-                                        className="img-fluid"
-                                        src="images/post/5.jpg"
-                                        src={ require("../../../../assets/images/post/5.jpg") }
-                                        alt="Image"
-                                    />
-                                </a>
-                            </div>
-                        </div>
-                        <div className="entry-content absolute">
-                            <div className="category">
-                                <ul className="global-list">
-                                    <li><a href="#">Technology</a></li>
-                                </ul>
-                            </div>
-                            <h2 className="entry-title">
-                                <a href="details.html">Airbnb bans 'party houses' even following mass
-                                    shooting</a>
-                            </h2>
-                            <div className="entry-meta">
-                                <ul className="global-list">
-                                    <li>By <a href="#">Mahananda</a></li>
-                                    <li><a href="#">November 4, 2020</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                {
+                    slider_news.length > 0 ?
+                        <Fragment>
+                            <SlickSlider {...settingsHomeSlider}
+                                         asNavFor={this.state.nav2}
+                                         ref={slider => (this.slider1 = slider)}
+                                         className="home-slider"
+                            >
+                                {
+                                    slider_news.map((news,index)=>(
+                                        <div className="sg-post featured-post" key={index}>
+                                            <div className="entry-header">
+                                                <div className="entry-thumbnail">
+                                                    <Link to={"/details/"+news.slug}>
+                                                        <img
+                                                            className="img-fluid"
+                                                            src={ news.image ? news.image.medium_image_three : default_image_three}
+                                                            alt="Image"
+                                                        />
+                                                    </Link>
+                                                </div>
+                                            </div>
+                                            <div className="entry-content absolute">
+                                                <div className="category">
+                                                    <ul className="global-list">
+                                                        <li><a href="#">{news.category.category_name}</a></li>
+                                                    </ul>
+                                                </div>
+                                                <h2 className="entry-title">
+                                                    <Link to={"/details/"+news.slug}>
+                                                        {news.title}
+                                                    </Link>
+                                                </h2>
+                                                <div className="entry-meta">
+                                                    <ul className="global-list">
+                                                        <li>By <a href="#">{news.user.first_name}</a></li>
+                                                        <li><a href="#">{moment(news.created_at).format('MMM DD, YYYY')}</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))
+                                }
 
-                    <div className="sg-post featured-post">
-                        <div className="entry-header">
-                            <div className="entry-thumbnail">
-                                <a href="details.html">
-                                    <img
-                                        className="img-fluid"
-                                        src={ require("../../../../assets/images/post/5.jpg") }
-                                        alt="Image"
-                                    />
-                                </a>
-                            </div>
-                        </div>
-                        <div className="entry-content absolute">
-                            <div className="category">
-                                <ul className="global-list">
-                                    <li><a href="#">Technology</a></li>
-                                </ul>
-                            </div>
-                            <h2 className="entry-title">
-                                <a href="details.html">Airbnb bans 'party houses' even following mass
-                                    shooting</a>
-                            </h2>
-                            <div className="entry-meta">
-                                <ul className="global-list">
-                                    <li>By <a href="#">Mahananda</a></li>
-                                    <li><a href="#">November 4, 2020</a></li>
-                                </ul>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div className="sg-post featured-post">
-                        <div className="entry-header">
-                            <div className="entry-thumbnail">
-                                <a href="details.html">
-                                    <img
-                                        className="img-fluid"
-                                        src={ require("../../../../assets/images/post/5.jpg") }
-                                        alt="Image"
-                                    />
-                                </a>
-                            </div>
-                        </div>
-                        <div className="entry-content absolute">
-                            <div className="category">
-                                <ul className="global-list">
-                                    <li><a href="#">Technology</a></li>
-                                </ul>
-                            </div>
-                            <h2 className="entry-title">
-                                <a href="details.html">Airbnb bans 'party houses' even following mass
-                                    shooting</a>
-                            </h2>
-                            <div className="entry-meta">
-                                <ul className="global-list">
-                                    <li>By <a href="#">Mahananda</a></li>
-                                    <li><a href="#">November 4, 2020</a></li>
-                                </ul>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div className="sg-post featured-post">
-                        <div className="entry-header">
-                            <div className="entry-thumbnail">
-                                <a href="details.html">
-                                    <img
-                                        className="img-fluid"
-                                        src={ require("../../../../assets/images/post/5.jpg") }
-                                        alt="Image"
-                                    />
-                                </a>
-                            </div>
-                        </div>
-                        <div className="entry-content absolute">
-                            <div className="category">
-                                <ul className="global-list">
-                                    <li><a href="#">Technology</a></li>
-                                </ul>
-                            </div>
-                            <h2 className="entry-title">
-                                <a href="details.html">Airbnb bans 'party houses' even following mass
-                                    shooting</a>
-                            </h2>
-                            <div className="entry-meta">
-                                <ul className="global-list">
-                                    <li>By <a href="#">Mahananda</a></li>
-                                    <li><a href="#">November 4, 2020</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </SlickSlider>
+                            </SlickSlider>
 
 
-                <SlickSlider {...settingsHomeSliderNav}
-                    asNavFor={this.state.nav1}
-                    ref={slider => (this.slider2 = slider)}
-                    className="home-slider-nav"
-                >
-                    <div className="thumb">
-                        <img
-                            className="img-fluid"
-                            src={ require("../../../../assets/images/post/1.jpg") }
-                            alt="Image"
-                        />
-                    </div>
-                    <div className="thumb">
-                        <img
-                            className="img-fluid"
-                            src={ require("../../../../assets/images/post/1.jpg") }
-                            alt="Image"
-                        />
-                </div>
-                    <div className="thumb">
-                        <img
-                            className="img-fluid"
-                            src={ require("../../../../assets/images/post/1.jpg") }
-                            alt="Image"
-                        />
-                    </div>
-                    <div className="thumb">
-                        <img
-                            className="img-fluid"
-                            src={ require("../../../../assets/images/post/1.jpg") }
-                            alt="Image"
-                        />
-                    </div>
-                    <div className="thumb">
-                        <img
-                            className="img-fluid"
-                            src={ require("../../../../assets/images/post/1.jpg") }
-                            alt="Image"
-                        />
-                    </div>
-                    <div className="thumb">
-                        <img
-                            className="img-fluid"
-                            src={ require("../../../../assets/images/post/1.jpg") }
-                            alt="Image"
-                        />
-                    </div>
-                </SlickSlider>
+                            <SlickSlider {...settingsHomeSliderNav}
+                                         asNavFor={this.state.nav1}
+                                         ref={slider => (this.slider2 = slider)}
+                                         className="home-slider-nav"
+                            >
+                                {
+                                    slider_news.map((news,index)=>(
+                                        <div className="thumb" key={index}>
+                                            <img
+                                                className="img-fluid"
+                                                src={ news.image ? news.image.big_image : default_image}
+                                                alt="Image"
+                                            />
+                                        </div>
+                                    ))
+                                }
+
+                            </SlickSlider>
+                        </Fragment>
+                    :null
+                }
+
             </>
         );
     }

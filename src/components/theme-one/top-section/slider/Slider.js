@@ -31,13 +31,13 @@ class Slider extends Component {
                                     <div key={index} className="sg-post featured-post">
                                         <div className="entry-header">
                                             <div className="entry-thumbnail">
-                                                <a href="details.html">
+                                                <Link to={"/details/"+news.slug}>
                                                     <img
                                                         className="img-fluid"
                                                         src={ news.image ? news.image.big_image : default_image}
                                                         alt="post_image"
                                                     />
-                                                </a>
+                                                </Link>
                                             </div>
                                         </div>
                                         <div className="entry-content absolute">

@@ -60,8 +60,8 @@ class HomePage extends Component {
                 <HeaderAds/>
                 {
                     primary_section_style === 'style_1' ? <TopSection news={news}/>
-                    // : primary_section_style === 'style_2' ? <TopSectionTwo news={news}/>
-                    // : primary_section_style === 'style_3' ? <TopSectionThree news={news}/>
+                    : primary_section_style === 'style_2' ? <TopSectionTwo news={news}/>
+                    : primary_section_style === 'style_3' ? <TopSectionThree news={news}/>
                     : <></>
                 }
                 <div className="sg-main-content mb-4">
