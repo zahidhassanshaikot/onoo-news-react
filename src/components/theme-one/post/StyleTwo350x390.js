@@ -8,6 +8,7 @@ import Truncate from 'react-truncate';
 class StyleTwo350X390 extends Component {
     render() {
         let news = this.props.news;
+        // let content=(ReactHtmlParser(news.content)).toString().replace(/<[^>]+>/g, '');
         // console.log(news);
         return (
             <>
@@ -34,7 +35,9 @@ class StyleTwo350X390 extends Component {
                         </div>
                         <p>
                             <Truncate lines={2} ellipsis={<span>..... </span>}>
-                                {ReactHtmlParser(ReactHtmlParser(news.content))}
+                                {
+                                    ReactHtmlParser(ReactHtmlParser(news.content))
+                                }
                             </Truncate>
                         </p>
                     </div>

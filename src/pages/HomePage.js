@@ -36,6 +36,7 @@ import HeaderThree from "../components/theme-one/header/HeaderThree";
 import TopSectionThree from "../components/theme-one/top-section/TopSectionThree";
 import CategoriesWidget from "../components/theme-one/main-content/widget/categories-widget/CategoriesWidget";
 import PopularPostWIdgetTwo from "../components/theme-one/main-content/widget/popular-post-widget/PopularPostWIdgetTwo";
+import CustomWidget from "../components/theme-one/main-content/widget/custom/CustomWidget";
 
 class HomePage extends Component {
 
@@ -170,6 +171,11 @@ class HomePage extends Component {
                                                     />
                                                 // :widget.short_code === 'weather' ?
                                                 //     <WeatherWidget/>
+                                                :widget.is_custom === 1 ?
+                                                    <CustomWidget
+                                                        key={index}
+                                                        widget={widget}
+                                                    />
                                                 :null
                                             ))
                                         :null

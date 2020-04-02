@@ -9,7 +9,7 @@ const init={
         }
         },
     dynamic_section:[{post:[]}],
-    videos:[{image:{},user:{},video:{},category:{}}],
+    videos:[],
     latest_post:[],
 }
 

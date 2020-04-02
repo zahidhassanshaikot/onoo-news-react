@@ -6,18 +6,143 @@ class PollWidget extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            resultShow: false
+            resultShow: false,
+            resultPoll:null,
+            resultPollIndex:0
         };
     }
-    resultShowOnClick = () => {
+    resultShowOnClick = (result, poll, pollIndex) => {
         this.setState(prevState => {
             return {
                 resultShow: !prevState.resultShow
             };
         });
+
+        const resultPoll=(
+            <Fragment>
+                {
+                    (poll.option_1 !== null) ?
+
+                        <Fragment>
+                            <span>{poll.option_1}</span>
+                            <div className="progress">
+                                <div className="progress-bar" style={{width:result.option_1+"%"}}>{result.option_1}%</div>
+                            </div>
+                        </Fragment>
+                        :null
+                }
+                {
+                    (poll.option_2 !== null) ?
+
+                        <Fragment>
+                            <span>{poll.option_2}</span>
+                            <div className="progress">
+                                <div className="progress-bar" style={{width:result.option_2+"%"}}>{result.option_2}%</div>
+                            </div>
+                        </Fragment>
+                        :null
+                }
+                {
+                    (poll.option_3 !== null) ?
+
+                        <Fragment>
+                            <span>{poll.option_3}</span>
+                            <div className="progress">
+                                <div className="progress-bar" style={{width:result.option_3+"%"}}>{result.option_3}%</div>
+                            </div>
+                        </Fragment>
+                        :null
+                }
+                {
+                    (poll.option_4 !== null) ?
+
+                        <Fragment>
+                            <span>{poll.option_4}</span>
+                            <div className="progress">
+                                <div className="progress-bar" style={{width:result.option_4+"%"}}>{result.option_4}%</div>
+                            </div>
+                        </Fragment>
+                        :null
+                }
+                {
+                    (poll.option_5 !== null) ?
+
+                        <Fragment>
+                            <span>{poll.option_5}</span>
+                            <div className="progress">
+                                <div className="progress-bar" style={{width:result.option_5+"%"}}>{result.option_5}%</div>
+                            </div>
+                        </Fragment>
+                        :null
+                }
+
+                {
+                    (poll.option_6 !== null) ?
+
+                        <Fragment>
+                            <span>{poll.option_6}</span>
+                            <div className="progress">
+                                <div className="progress-bar" style={{width:result.option_6+"%"}}>{result.option_6}%</div>
+                            </div>
+                        </Fragment>
+                        :null
+                }
+                {
+                    (poll.option_7 !== null) ?
+
+                        <Fragment>
+                            <span>{poll.option_7}</span>
+                            <div className="progress">
+                                <div className="progress-bar" style={{width:result.option_7+"%"}}>{result.option_7}%</div>
+                            </div>
+                        </Fragment>
+                        :null
+                }
+                {
+                    (poll.option_8 !== null) ?
+
+                        <Fragment>
+                            <span>{poll.option_8}</span>
+                            <div className="progress">
+                                <div className="progress-bar" style={{width:result.option_8+"%"}}>{result.option_8}%</div>
+                            </div>
+                        </Fragment>
+                        :null
+                }
+                {
+                    (poll.option_9 !== null) ?
+
+                        <Fragment>
+                            <span>{poll.option_9}</span>
+                            <div className="progress">
+                                <div className="progress-bar" style={{width:result.option_9+"%"}}>{result.option_9}%</div>
+                            </div>
+                        </Fragment>
+                        :null
+                }
+                {
+                    (poll.option_10 !== null) ?
+
+                        <Fragment>
+                            <span>{poll.option_10}</span>
+                            <div className="progress">
+                                <div className="progress-bar" style={{width:result.option_10+"%"}}>{result.option_10}%</div>
+                            </div>
+                        </Fragment>
+                        :null
+                }
+            </Fragment>
+
+
+
+        )
+
+        this.setState({resultPoll:resultPoll,resultPollIndex:pollIndex})
+        // console.log(resultPoll);
     };
     render() {
         let widget = this.props.widget;
+        console.log(this.state.resultPollIndex);
         return (
             <>
                 <div className="sg-widget">
@@ -116,32 +241,19 @@ class PollWidget extends Component {
                                     }
 
                                     <a href="#" className="btn btn-primary">vote</a>
-                                    <Link onClick={this.resultShowOnClick}>View Results</Link>
+                                    <Link onClick={() =>this.resultShowOnClick(poll.result, poll, index)}>View Results</Link>
                                 </form>
 
 
                                 { this.state.resultShow === true && (
                                     <div className="progress-content">
                                         {
-                                            (poll.option_1 !== null) ?
-                                                <Fragment>
-                                                    <span>{poll.option_1}</span>
-                                                    <div className="progress">
-                                                        <div className="progress-bar" style={{width:poll.result.option_1+"%"}}>{poll.result.option_1}%</div>
-                                                    </div>
-                                                </Fragment>
+                                            index===this.state.resultPollIndex ?
+                                                this.state.resultPoll
                                             :null
+
                                         }
 
-
-                                        {/*<span>CSS</span>*/}
-                                        {/*<div className="progress">*/}
-                                        {/*    <div className="progress-bar" style={{width:"95%"}}>95%</div>*/}
-                                        {/*</div>*/}
-                                        {/*<span>WordPress</span>*/}
-                                        {/*<div className="progress">*/}
-                                        {/*    <div className="progress-bar" style={{width:"80%"}}>80%</div>*/}
-                                        {/*</div>*/}
                                     </div>
                                 )}
 
